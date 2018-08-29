@@ -1,0 +1,11 @@
+env:
+  - TARGET=linux_amd64
+  - TARGET=darwin_amd64
+jobs:
+  include:
+    - stage: test
+      target: linux_amd64
+      script: bazel test //...
+    - stage: build
+      script: make --debug=b vendor bin/$TARGET/terraform-provider-linuxkit
+

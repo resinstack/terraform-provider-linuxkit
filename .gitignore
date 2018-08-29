@@ -1,0 +1,6 @@
+/bazel-*
+/terraform.d
+/.terraform
+/.vscode
+/bin
+/vendor
