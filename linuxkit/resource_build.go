@@ -6,13 +6,16 @@ import (
 	"io"
 	"os"
 
+	"gopkg.in/yaml.v2"
+
 	"github.com/moby/tool/src/moby"
+	"github.com/pkg/errors"
 
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
 func buildResource() *schema.Resource {
-	return &schema.Resource{
+	resource := &schema.Resource{
 		Create: buildCreate,
 		Read:   buildRead,
 		Update: buildUpdate,
@@ -26,7 +29,13 @@ func buildResource() *schema.Resource {
 				Required:    true,
 				ForceNew:    true,
 			},
+
 			"config": &schema.Schema{
+				Type:        schema.TypeString,
+				Description: "The linuxkit config id",
+				Required:    true,
+			},
+			"config_yaml": &schema.Schema{
 				Type:        schema.TypeString,
 				Description: "The linuxkit config yaml",
 				Required:    true,
@@ -39,6 +48,10 @@ func buildResource() *schema.Resource {
 			},
 		},
 	}
+
+	withConfigSchema(resource.Schema)
+
+	return resource
 }
 
 func buildRead(d *schema.ResourceData, meta interface{}) error {
@@ -60,7 +73,12 @@ func buildCreate(d *schema.ResourceData, meta interface{}) error {
 	destination := d.Get("destination").(string)
 	typ := d.Get("type").(string)
 
-	config, err := moby.NewConfig([]byte(d.Get("config").(string)))
+	configData, err := buildConfig(d)
+	if err != nil {
+		return err
+	}
+
+	config, err := moby.NewConfig(configData)
 	if err != nil {
 		return err
 	}
@@ -127,8 +145,34 @@ func buildID(d *schema.ResourceData) (string, error) {
 		return "", err
 	}
 
-	h.Write([]byte(d.Get("config").(string)))
+	config, err := buildConfig(d)
+	if err != nil {
+		return "", err
+	}
+
+	h.Write(config)
 	h.Write([]byte(d.Get("type").(string)))
 
 	return fmt.Sprintf("%x", h.Sum(nil)), nil
+}
+
+func buildConfig(d *schema.ResourceData) ([]byte, error) {
+	var err error
+	var bts []byte
+
+	if v, ok := d.GetOk("config"); ok {
+		id := v.(string)
+
+		if config, ok := globalCache.configs[id]; ok {
+			bts, err = yaml.Marshal(config)
+		} else {
+			return nil, errors.New("unknown config id")
+		}
+	} else if v, ok := d.GetOk("config_yaml"); ok {
+		bts = []byte(v.(string))
+	} else {
+		_, bts, err = fromConfigSchema(d)
+	}
+
+	return bts, err
 }

@@ -43,5 +43,6 @@ go_binary(
     out = select({
         "@io_bazel_rules_go//go/platform:linux_amd64": "linux_amd64/terraform-provider-linuxkit",
         "@io_bazel_rules_go//go/platform:darwin_amd64": "darwin_amd64/terraform-provider-linuxkit",
+        "@io_bazel_rules_go//go/platform:windows_amd64": "windows_amd64/terraform-provider-linuxkit",
     }),
 )

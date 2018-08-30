@@ -9,75 +9,70 @@ import (
 	"github.com/moby/tool/src/moby"
 )
 
-func configDataSource() *schema.Resource {
-	return &schema.Resource{
-		Read: configRead,
+func withConfigSchema(s map[string]*schema.Schema) {
+	s["kernel"] = &schema.Schema{
+		Type:        schema.TypeString,
+		Description: "The ID of the kernel resource",
+		Required:    true,
+		ForceNew:    true,
+	}
 
-		Schema: map[string]*schema.Schema{
-			"kernel": &schema.Schema{
-				Type:        schema.TypeString,
-				Description: "The ID of the kernel resource",
-				Required:    true,
-				ForceNew:    true,
-			},
-			"init": &schema.Schema{
-				Type:        schema.TypeList,
-				Description: "The IDs of init containers",
-				Required:    true,
-				ForceNew:    true,
-				Elem:        &schema.Schema{Type: schema.TypeString},
-			},
-			"onboot": &schema.Schema{
-				Type:        schema.TypeList,
-				Description: "The IDs of the onboot containers",
-				Optional:    true,
-				ForceNew:    true,
-				Elem:        &schema.Schema{Type: schema.TypeString},
-			},
-			"onshutdown": &schema.Schema{
-				Type:        schema.TypeList,
-				Description: "The IDs of the onshutdown containers",
-				Optional:    true,
-				ForceNew:    true,
-				Elem:        &schema.Schema{Type: schema.TypeString},
-			},
-			"services": &schema.Schema{
-				Type:        schema.TypeList,
-				Description: "The IDs of the service containers",
-				Optional:    true,
-				ForceNew:    true,
-				Elem:        &schema.Schema{Type: schema.TypeString},
-			},
-			"files": &schema.Schema{
-				Type:        schema.TypeList,
-				Description: "The IDs of the file config",
-				Optional:    true,
-				ForceNew:    true,
-				Elem:        &schema.Schema{Type: schema.TypeString},
-			},
-			"trust": &schema.Schema{
-				Type:        schema.TypeString,
-				Description: "The ID of the trust config",
-				Optional:    true,
-				ForceNew:    true,
-			},
-			"yaml": &schema.Schema{
-				Type:        schema.TypeString,
-				Description: "The rendered yaml of the config",
-				Computed:    true,
-			},
-		},
+	s["init"] = &schema.Schema{
+		Type:        schema.TypeList,
+		Description: "The IDs of init containers",
+		Required:    true,
+		ForceNew:    true,
+		Elem:        &schema.Schema{Type: schema.TypeString},
+	}
+
+	s["onboot"] = &schema.Schema{
+		Type:        schema.TypeList,
+		Description: "The IDs of the onboot containers",
+		Optional:    true,
+		ForceNew:    true,
+		Elem:        &schema.Schema{Type: schema.TypeString},
+	}
+
+	s["onshutdown"] = &schema.Schema{
+		Type:        schema.TypeList,
+		Description: "The IDs of the onshutdown containers",
+		Optional:    true,
+		ForceNew:    true,
+		Elem:        &schema.Schema{Type: schema.TypeString},
+	}
+
+	s["services"] = &schema.Schema{
+		Type:        schema.TypeList,
+		Description: "The IDs of the service containers",
+		Optional:    true,
+		ForceNew:    true,
+		Elem:        &schema.Schema{Type: schema.TypeString},
+	}
+
+	s["files"] = &schema.Schema{
+		Type:        schema.TypeList,
+		Description: "The IDs of the file config",
+		Optional:    true,
+		ForceNew:    true,
+		Elem:        &schema.Schema{Type: schema.TypeString},
+	}
+
+	s["trust"] = &schema.Schema{
+		Type:        schema.TypeString,
+		Description: "The ID of the trust config",
+		Optional:    true,
+		ForceNew:    true,
 	}
 }
 
-func configRead(d *schema.ResourceData, meta interface{}) error {
+func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 	config := &moby.Moby{}
 
 	if v, ok := d.GetOk("kernel"); ok {
 		if kernel, ok := globalCache.kernels[v.(string)]; ok {
 			config.Kernel = *kernel
 		} else {
-			return errors.New("Kernel not found")
+			return nil, nil, errors.New("Kernel not found")
 		}
 	}
 
@@ -86,7 +81,7 @@ func configRead(d *schema.ResourceData, meta interface{}) error {
 			if init, ok := globalCache.inits[id]; ok {
 				config.Init = append(config.Init, init...)
 			} else {
-				return errors.New("Init image not found")
+				return nil, nil, errors.New("Init image not found")
 			}
 		}
 	}
@@ -96,7 +91,7 @@ func configRead(d *schema.ResourceData, meta interface{}) error {
 			if image, ok := globalCache.images[id]; ok {
 				config.Onboot = append(config.Onboot, image)
 			} else {
-				return errors.New("Onboot image not found")
+				return nil, nil, errors.New("Onboot image not found")
 			}
 		}
 	}
@@ -106,7 +101,7 @@ func configRead(d *schema.ResourceData, meta interface{}) error {
 			if image, ok := globalCache.images[id]; ok {
 				config.Onshutdown = append(config.Onshutdown, image)
 			} else {
-				return errors.New("Onshutdown image not found")
+				return nil, nil, errors.New("Onshutdown image not found")
 			}
 		}
 	}
@@ -116,7 +111,7 @@ func configRead(d *schema.ResourceData, meta interface{}) error {
 			if image, ok := globalCache.images[id]; ok {
 				config.Services = append(config.Services, image)
 			} else {
-				return errors.New("Services image not found")
+				return nil, nil, errors.New("Services image not found")
 			}
 		}
 	}
@@ -126,7 +121,7 @@ func configRead(d *schema.ResourceData, meta interface{}) error {
 			if file, ok := globalCache.files[id]; ok {
 				config.Files = append(config.Files, *file)
 			} else {
-				return errors.New("File config not found")
+				return nil, nil, errors.New("File config not found")
 			}
 		}
 	}
@@ -135,11 +130,38 @@ func configRead(d *schema.ResourceData, meta interface{}) error {
 		if trust, ok := globalCache.trust[v.(string)]; ok {
 			config.Trust = *trust
 		} else {
-			return errors.New("Trust config not found")
+			return nil, nil, errors.New("Trust config not found")
 		}
 	}
 
 	byts, err := yaml.Marshal(config)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	return config, byts, nil
+}
+
+func configDataSource() *schema.Resource {
+	resource := &schema.Resource{
+		Read: configRead,
+
+		Schema: map[string]*schema.Schema{
+			"yaml": &schema.Schema{
+				Type:        schema.TypeString,
+				Description: "The rendered yaml of the config",
+				Computed:    true,
+			},
+		},
+	}
+
+	withConfigSchema(resource.Schema)
+
+	return resource
+}
+
+func configRead(d *schema.ResourceData, meta interface{}) error {
+	config, byts, err := fromConfigSchema(d)
 	if err != nil {
 		return err
 	}
