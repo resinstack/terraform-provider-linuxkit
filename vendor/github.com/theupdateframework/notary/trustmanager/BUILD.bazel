@@ -1,0 +1,21 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "errors.go",
+        "interfaces.go",
+        "keys.go",
+        "keystore.go",
+    ],
+    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/trustmanager",
+    importpath = "github.com/theupdateframework/notary/trustmanager",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+        "//vendor/github.com/theupdateframework/notary:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/storage:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/tuf/data:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/tuf/utils:go_default_library",
+    ],
+)
