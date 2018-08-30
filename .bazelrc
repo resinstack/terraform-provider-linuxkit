@@ -1,0 +1,6 @@
+--local_resources=1536,1.5,0.5
+--noshow_progress
+--verbose_failures
+--test_output=errors
+build --spawn_strategy=standalone --genrule_strategy=standalone
+test --test_strategy=standalone

@@ -1,11 +1,34 @@
-env:
-  - TARGET=linux_amd64
-  - TARGET=darwin_amd64
+dist: trusty
+sudo: required
+
+language: go
+go:
+  - "1.11"
+
+stages:
+  - test
+  - release
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8'
+        key_url: 'https://storage.googleapis.com/bazel-apt/doc/apt-key.pub.gpg'
+    packages:
+      - bazel
+
 jobs:
   include:
     - stage: test
-      target: linux_amd64
-      script: bazel test //...
-    - stage: build
-      script: make --debug=b vendor bin/$TARGET/terraform-provider-linuxkit
+      script: make test
+    - stage: release
+      script: make release
+      deploy:
+        provider: releases
+        api_key:
+          secure: "TODO"
+        file: release.tar.gz
+        skip_cleanup: true
+        on:
+          tags: true
 

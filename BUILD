@@ -36,8 +36,12 @@ go_library(
 
 # Go binary build
 go_binary(
-    name = "terraform-provider-linuxkit",
+    name = "go_default_binary",
     embed = [":go_default_library"],
-    pure = "off",
+    pure = "on",
     visibility = ["//visibility:public"],
+    out = select({
+        "@io_bazel_rules_go//go/platform:linux_amd64": "linux_amd64/terraform-provider-linuxkit",
+        "@io_bazel_rules_go//go/platform:darwin_amd64": "darwin_amd64/terraform-provider-linuxkit",
+    }),
 )
