@@ -31,15 +31,19 @@ func buildResource() *schema.Resource {
 			},
 
 			"config": &schema.Schema{
-				Type:        schema.TypeString,
-				Description: "The linuxkit config id",
-				Required:    true,
+				Type:          schema.TypeString,
+				Description:   "The linuxkit config id",
+				Optional:      true,
+				ConflictsWith: []string{"config_yaml"},
 			},
+
 			"config_yaml": &schema.Schema{
-				Type:        schema.TypeString,
-				Description: "The linuxkit config yaml",
-				Required:    true,
+				Type:          schema.TypeString,
+				Description:   "The linuxkit config yaml",
+				Optional:      true,
+				ConflictsWith: []string{"config"},
 			},
+
 			"type": &schema.Schema{
 				Type:        schema.TypeString,
 				Default:     "tar",
@@ -50,6 +54,12 @@ func buildResource() *schema.Resource {
 	}
 
 	withConfigSchema(resource.Schema)
+
+	resource.Schema["init"].Optional = true
+	resource.Schema["init"].Required = false
+
+	resource.Schema["kernel"].Optional = true
+	resource.Schema["kernel"].Required = false
 
 	return resource
 }

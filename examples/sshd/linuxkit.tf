@@ -68,8 +68,8 @@ data "linuxkit_config" "sshd" {
 }
 
 resource "linuxkit_build" "sshd" {
+  config      = "${data.linuxkit_config.sshd.id}"
   destination = "${path.module}/sshd.tar"
-  config      = "${data.linuxkit_config.sshd.yaml}"
 }
 
 resource "linuxkit_image_kernel_initrd" "sshd" {
