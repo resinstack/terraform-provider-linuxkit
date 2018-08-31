@@ -7,7 +7,7 @@ This terraform provider builds [LinuxKit](https://github.com/linuxkit/linuxkit) 
 - Build LinuxKit images in all the formats that LinuxKit supports
 - Reuse config blocks in multiple images 
 
-# Docs
+## Docs
 
 Documentation can be found in the [docs](/docs/index.md) folder.
 
