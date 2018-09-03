@@ -6,7 +6,7 @@ go_library(
         "certs.go",
         "trustpin.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/trustpinning",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/trustpinning",
     importpath = "github.com/theupdateframework/notary/trustpinning",
     visibility = ["//visibility:public"],
     deps = [

@@ -10,7 +10,7 @@ go_library(
         "pagination.go",
         "redirect.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/registry/response",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/registry/response",
     importpath = "github.com/hashicorp/terraform/registry/response",
     visibility = ["//visibility:public"],
 )

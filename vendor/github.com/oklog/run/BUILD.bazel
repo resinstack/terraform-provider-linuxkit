@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["group.go"],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/oklog/run",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/oklog/run",
     importpath = "github.com/oklog/run",
     visibility = ["//visibility:public"],
 )

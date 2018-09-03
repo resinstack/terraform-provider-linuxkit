@@ -7,7 +7,7 @@ go_library(
         "reader.go",
         "writer.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/surma/gocpio",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/surma/gocpio",
     importpath = "github.com/surma/gocpio",
     visibility = ["//visibility:public"],
 )

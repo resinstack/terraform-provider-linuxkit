@@ -6,7 +6,7 @@ go_library(
         "color.go",
         "doc.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/fatih/color",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/fatih/color",
     importpath = "github.com/fatih/color",
     visibility = ["//visibility:public"],
     deps = [

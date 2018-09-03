@@ -18,7 +18,7 @@ go_library(
         "text_formatter.go",
         "writer.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/sirupsen/logrus",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/sirupsen/logrus",
     importpath = "github.com/sirupsen/logrus",
     visibility = ["//visibility:public"],
     deps = [

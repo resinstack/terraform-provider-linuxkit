@@ -9,7 +9,7 @@ go_library(
         "utils.go",
         "zsh.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/posener/complete/cmd/install",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/posener/complete/cmd/install",
     importpath = "github.com/posener/complete/cmd/install",
     visibility = ["//visibility:public"],
     deps = ["//vendor/github.com/hashicorp/go-multierror:go_default_library"],

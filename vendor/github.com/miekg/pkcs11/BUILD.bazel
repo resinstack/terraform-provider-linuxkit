@@ -46,7 +46,7 @@ go_library(
         ],
         "//conditions:default": [],
     }),
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/miekg/pkcs11",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/miekg/pkcs11",
     importpath = "github.com/miekg/pkcs11",
     visibility = ["//visibility:public"],
 )

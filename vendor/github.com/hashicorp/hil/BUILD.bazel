@@ -14,7 +14,7 @@ go_library(
         "transform_fixed.go",
         "walk.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/hil",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/hil",
     importpath = "github.com/hashicorp/hil",
     visibility = ["//visibility:public"],
     deps = [

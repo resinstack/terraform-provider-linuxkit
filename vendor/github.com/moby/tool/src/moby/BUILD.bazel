@@ -15,7 +15,7 @@ go_library(
         "util_unix.go",
         "util_windows.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/moby/tool/src/moby",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/moby/tool/src/moby",
     importpath = "github.com/moby/tool/src/moby",
     visibility = ["//visibility:public"],
     deps = [

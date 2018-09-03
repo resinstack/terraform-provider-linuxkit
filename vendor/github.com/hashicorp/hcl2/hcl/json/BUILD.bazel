@@ -14,7 +14,7 @@ go_library(
         "structure.go",
         "tokentype_string.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/hcl2/hcl/json",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/hcl2/hcl/json",
     importpath = "github.com/hashicorp/hcl2/hcl/json",
     visibility = ["//visibility:public"],
     deps = [

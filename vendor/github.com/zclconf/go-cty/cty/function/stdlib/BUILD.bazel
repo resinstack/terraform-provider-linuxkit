@@ -17,7 +17,7 @@ go_library(
         "set.go",
         "string.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/zclconf/go-cty/cty/function/stdlib",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/zclconf/go-cty/cty/function/stdlib",
     importpath = "github.com/zclconf/go-cty/cty/function/stdlib",
     visibility = ["//visibility:public"],
     deps = [

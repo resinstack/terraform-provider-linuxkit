@@ -12,7 +12,7 @@ go_library(
         "predict_set.go",
         "utils.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/posener/complete",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/posener/complete",
     importpath = "github.com/posener/complete",
     visibility = ["//visibility:public"],
     deps = [

@@ -4,7 +4,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 # Load gazel rule
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
-# gazelle:prefix github.com/thatsmrtalbot/terraform-provider-linuxkit
+# gazelle:prefix github.com/skybet/terraform-provider-linuxkit
 
 # Gazelle generates the BUILD files for golang
 gazelle(
@@ -26,7 +26,7 @@ alias(
 go_library(
     name = "go_default_library",
     srcs = ["main.go"],
-    importpath = "github.com/thatsmrtalbot/terraform-provider-linuxkit",
+    importpath = "github.com/skybet/terraform-provider-linuxkit",
     visibility = ["//visibility:private"],
     deps = [
         "//linuxkit:go_default_library",

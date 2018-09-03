@@ -9,7 +9,7 @@ go_library(
         "metric_chan.go",
         "reporter.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/aws/aws-sdk-go/aws/csm",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/aws/aws-sdk-go/aws/csm",
     importpath = "github.com/aws/aws-sdk-go/aws/csm",
     visibility = ["//visibility:public"],
     deps = [

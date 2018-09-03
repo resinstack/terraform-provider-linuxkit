@@ -7,7 +7,7 @@ go_library(
         "url_unix.go",
         "url_windows.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/go-getter/helper/url",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/go-getter/helper/url",
     importpath = "github.com/hashicorp/go-getter/helper/url",
     visibility = ["//visibility:public"],
 )

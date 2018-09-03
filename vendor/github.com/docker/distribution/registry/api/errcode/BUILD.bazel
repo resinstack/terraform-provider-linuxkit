@@ -7,7 +7,7 @@ go_library(
         "handler.go",
         "register.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/docker/distribution/registry/api/errcode",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/docker/distribution/registry/api/errcode",
     importpath = "github.com/docker/distribution/registry/api/errcode",
     visibility = ["//visibility:public"],
 )

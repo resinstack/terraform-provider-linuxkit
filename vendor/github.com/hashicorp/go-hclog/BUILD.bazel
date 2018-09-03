@@ -10,7 +10,7 @@ go_library(
         "stacktrace.go",
         "stdlog.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/go-hclog",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/go-hclog",
     importpath = "github.com/hashicorp/go-hclog",
     visibility = ["//visibility:public"],
 )

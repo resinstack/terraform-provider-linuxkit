@@ -9,7 +9,7 @@ go_library(
         "trace_go16.go",
         "trace_go17.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/golang.org/x/net/trace",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/golang.org/x/net/trace",
     importpath = "golang.org/x/net/trace",
     visibility = ["//visibility:public"],
     deps = [

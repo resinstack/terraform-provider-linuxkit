@@ -9,7 +9,7 @@ go_library(
         "out.go",
         "type_implied.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/zclconf/go-cty/cty/gocty",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/zclconf/go-cty/cty/gocty",
     importpath = "github.com/zclconf/go-cty/cty/gocty",
     visibility = ["//visibility:public"],
     deps = [

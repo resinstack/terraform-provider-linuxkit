@@ -10,7 +10,7 @@ go_library(
         "stream.go",
         "util.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/yamux",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/yamux",
     importpath = "github.com/hashicorp/yamux",
     visibility = ["//visibility:public"],
 )

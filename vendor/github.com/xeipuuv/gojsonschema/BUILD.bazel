@@ -20,7 +20,7 @@ go_library(
         "utils.go",
         "validation.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/xeipuuv/gojsonschema",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/xeipuuv/gojsonschema",
     importpath = "github.com/xeipuuv/gojsonschema",
     visibility = ["//visibility:public"],
     deps = ["//vendor/github.com/xeipuuv/gojsonreference:go_default_library"],

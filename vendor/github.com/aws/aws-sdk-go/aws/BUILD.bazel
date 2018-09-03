@@ -17,7 +17,7 @@ go_library(
         "url_1_7.go",
         "version.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/aws/aws-sdk-go/aws",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/aws/aws-sdk-go/aws",
     importpath = "github.com/aws/aws-sdk-go/aws",
     visibility = ["//visibility:public"],
     deps = [

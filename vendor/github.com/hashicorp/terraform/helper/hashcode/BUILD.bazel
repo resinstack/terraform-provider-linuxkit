@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["hashcode.go"],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/helper/hashcode",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/helper/hashcode",
     importpath = "github.com/hashicorp/terraform/helper/hashcode",
     visibility = ["//visibility:public"],
 )

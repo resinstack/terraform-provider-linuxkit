@@ -8,7 +8,7 @@ go_library(
         "schema.go",
         "types.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/hcl2/gohcl",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/hcl2/gohcl",
     importpath = "github.com/hashicorp/hcl2/gohcl",
     visibility = ["//visibility:public"],
     deps = [

@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["hilmapstructure.go"],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/helper/hilmapstructure",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/helper/hilmapstructure",
     importpath = "github.com/hashicorp/terraform/helper/hilmapstructure",
     visibility = ["//visibility:public"],
     deps = ["//vendor/github.com/mitchellh/mapstructure:go_default_library"],

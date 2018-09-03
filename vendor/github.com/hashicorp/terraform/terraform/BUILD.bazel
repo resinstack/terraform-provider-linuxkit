@@ -149,7 +149,7 @@ go_library(
         "version_required.go",
         "walkoperation_string.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/terraform",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/terraform",
     importpath = "github.com/hashicorp/terraform/terraform",
     visibility = ["//visibility:public"],
     deps = [

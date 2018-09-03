@@ -14,7 +14,7 @@ go_library(
         "ui_mock.go",
         "ui_writer.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/mitchellh/cli",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/mitchellh/cli",
     importpath = "github.com/mitchellh/cli",
     visibility = ["//visibility:public"],
     deps = [

@@ -10,7 +10,7 @@ go_library(
         "routes.go",
         "urls.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/docker/distribution/registry/api/v2",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/docker/distribution/registry/api/v2",
     importpath = "github.com/docker/distribution/registry/api/v2",
     visibility = ["//visibility:public"],
     deps = [

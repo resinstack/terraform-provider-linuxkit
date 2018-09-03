@@ -10,7 +10,7 @@ go_library(
         "memorystore.go",
         "offlinestore.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/storage",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/storage",
     importpath = "github.com/theupdateframework/notary/storage",
     visibility = ["//visibility:public"],
     deps = [

@@ -13,7 +13,7 @@ go_library(
         "timestamp.go",
         "types.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/tuf/data",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/tuf/data",
     importpath = "github.com/theupdateframework/notary/tuf/data",
     visibility = ["//visibility:public"],
     deps = [

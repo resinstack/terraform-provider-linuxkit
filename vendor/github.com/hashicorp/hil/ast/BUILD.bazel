@@ -18,7 +18,7 @@ go_library(
         "variable_access.go",
         "variables_helper.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/hil/ast",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/hil/ast",
     importpath = "github.com/hashicorp/hil/ast",
     visibility = ["//visibility:public"],
 )

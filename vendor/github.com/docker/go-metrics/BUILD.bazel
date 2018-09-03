@@ -13,7 +13,7 @@ go_library(
         "timer.go",
         "unit.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/docker/go-metrics",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/docker/go-metrics",
     importpath = "github.com/docker/go-metrics",
     visibility = ["//visibility:public"],
     deps = [

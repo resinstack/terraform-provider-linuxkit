@@ -9,7 +9,7 @@ go_library(
         "fips.go",
         "notary.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary",
     importpath = "github.com/theupdateframework/notary",
     visibility = ["//visibility:public"],
 )

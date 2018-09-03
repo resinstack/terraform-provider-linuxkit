@@ -8,7 +8,7 @@ go_library(
         "rabin_karp.go",
         "roller.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/ulikunitz/xz/internal/hash",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/ulikunitz/xz/internal/hash",
     importpath = "github.com/ulikunitz/xz/internal/hash",
     visibility = ["//vendor/github.com/ulikunitz/xz:__subpackages__"],
 )

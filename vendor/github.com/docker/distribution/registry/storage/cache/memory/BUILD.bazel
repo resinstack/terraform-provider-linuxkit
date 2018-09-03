@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["memory.go"],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/docker/distribution/registry/storage/cache/memory",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/docker/distribution/registry/storage/cache/memory",
     importpath = "github.com/docker/distribution/registry/storage/cache/memory",
     visibility = ["//visibility:public"],
     deps = [

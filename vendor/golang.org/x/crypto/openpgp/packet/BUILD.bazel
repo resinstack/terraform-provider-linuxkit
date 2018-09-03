@@ -22,7 +22,7 @@ go_library(
         "userattribute.go",
         "userid.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/golang.org/x/crypto/openpgp/packet",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/golang.org/x/crypto/openpgp/packet",
     importpath = "golang.org/x/crypto/openpgp/packet",
     visibility = ["//visibility:public"],
     deps = [

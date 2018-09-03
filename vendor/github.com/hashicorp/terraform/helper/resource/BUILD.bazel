@@ -13,7 +13,7 @@ go_library(
         "testing_import_state.go",
         "wait.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/helper/resource",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/helper/resource",
     importpath = "github.com/hashicorp/terraform/helper/resource",
     visibility = ["//visibility:public"],
     deps = [

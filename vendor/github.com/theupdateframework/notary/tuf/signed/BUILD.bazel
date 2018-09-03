@@ -10,7 +10,7 @@ go_library(
         "verifiers.go",
         "verify.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/tuf/signed",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/tuf/signed",
     importpath = "github.com/theupdateframework/notary/tuf/signed",
     visibility = ["//visibility:public"],
     deps = [

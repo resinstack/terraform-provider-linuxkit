@@ -24,7 +24,7 @@ go_library(
         "types.go",
         "volume.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/docker/docker/api/types",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/docker/docker/api/types",
     importpath = "github.com/docker/docker/api/types",
     visibility = ["//visibility:public"],
     deps = [

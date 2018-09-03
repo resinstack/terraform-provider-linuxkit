@@ -8,7 +8,7 @@ go_library(
         "lex.go",
         "parse.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/hcl",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/hcl",
     importpath = "github.com/hashicorp/hcl",
     visibility = ["//visibility:public"],
     deps = [

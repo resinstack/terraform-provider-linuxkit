@@ -19,7 +19,7 @@ go_library(
         "unmarshal_error.go",
         "waiters.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/aws/aws-sdk-go/service/s3",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/aws/aws-sdk-go/service/s3",
     importpath = "github.com/aws/aws-sdk-go/service/s3",
     visibility = ["//visibility:public"],
     deps = [

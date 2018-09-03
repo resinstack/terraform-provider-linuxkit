@@ -7,7 +7,7 @@ go_library(
         "errors.go",
         "repository.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/docker/distribution/registry/client",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/docker/distribution/registry/client",
     importpath = "github.com/docker/distribution/registry/client",
     visibility = ["//visibility:public"],
     deps = [

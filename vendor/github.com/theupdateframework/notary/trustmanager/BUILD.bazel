@@ -8,7 +8,7 @@ go_library(
         "keys.go",
         "keystore.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/trustmanager",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/trustmanager",
     importpath = "github.com/theupdateframework/notary/trustmanager",
     visibility = ["//visibility:public"],
     deps = [

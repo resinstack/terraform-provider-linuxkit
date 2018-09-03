@@ -25,7 +25,7 @@ go_library(
         "resource_mode_string.go",
         "testing.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/config",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/config",
     importpath = "github.com/hashicorp/terraform/config",
     visibility = ["//visibility:public"],
     deps = [

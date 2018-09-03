@@ -6,7 +6,7 @@ go_library(
         "copier_time.go",
         "copystructure.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/mitchellh/copystructure",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/mitchellh/copystructure",
     importpath = "github.com/mitchellh/copystructure",
     visibility = ["//visibility:public"],
     deps = ["//vendor/github.com/mitchellh/reflectwalk:go_default_library"],

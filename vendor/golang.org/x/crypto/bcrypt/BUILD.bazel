@@ -6,7 +6,7 @@ go_library(
         "base64.go",
         "bcrypt.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/golang.org/x/crypto/bcrypt",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/golang.org/x/crypto/bcrypt",
     importpath = "golang.org/x/crypto/bcrypt",
     visibility = ["//visibility:public"],
     deps = ["//vendor/golang.org/x/crypto/blowfish:go_default_library"],

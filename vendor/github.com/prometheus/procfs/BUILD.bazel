@@ -18,7 +18,7 @@ go_library(
         "stat.go",
         "xfrm.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/prometheus/procfs",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/prometheus/procfs",
     importpath = "github.com/prometheus/procfs",
     visibility = ["//visibility:public"],
     deps = [

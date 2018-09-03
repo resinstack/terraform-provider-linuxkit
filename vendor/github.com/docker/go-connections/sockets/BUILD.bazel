@@ -11,7 +11,7 @@ go_library(
         "tcp_socket.go",
         "unix_socket.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/docker/go-connections/sockets",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/docker/go-connections/sockets",
     importpath = "github.com/docker/go-connections/sockets",
     visibility = ["//visibility:public"],
     deps = [

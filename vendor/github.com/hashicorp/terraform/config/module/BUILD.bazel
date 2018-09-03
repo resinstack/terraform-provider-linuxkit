@@ -16,7 +16,7 @@ go_library(
         "validate_provider_alias.go",
         "versions.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/config/module",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/config/module",
     importpath = "github.com/hashicorp/terraform/config/module",
     visibility = ["//visibility:public"],
     deps = [

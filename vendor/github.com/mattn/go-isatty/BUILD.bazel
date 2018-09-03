@@ -11,7 +11,7 @@ go_library(
         "isatty_solaris.go",
         "isatty_windows.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/mattn/go-isatty",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/mattn/go-isatty",
     importpath = "github.com/mattn/go-isatty",
     visibility = ["//visibility:public"],
     deps = select({

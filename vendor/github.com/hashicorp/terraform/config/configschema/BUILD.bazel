@@ -10,7 +10,7 @@ go_library(
         "nestingmode_string.go",
         "schema.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/config/configschema",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/config/configschema",
     importpath = "github.com/hashicorp/terraform/config/configschema",
     visibility = ["//visibility:public"],
     deps = [

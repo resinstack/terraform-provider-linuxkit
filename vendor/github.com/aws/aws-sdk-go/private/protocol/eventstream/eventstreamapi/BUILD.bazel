@@ -6,7 +6,7 @@ go_library(
         "api.go",
         "error.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/aws/aws-sdk-go/private/protocol/eventstream/eventstreamapi",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/aws/aws-sdk-go/private/protocol/eventstream/eventstreamapi",
     importpath = "github.com/aws/aws-sdk-go/private/protocol/eventstream/eventstreamapi",
     visibility = ["//visibility:public"],
     deps = [

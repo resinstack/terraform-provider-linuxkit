@@ -10,7 +10,7 @@ go_library(
         "reader.go",
         "writer.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/ulikunitz/xz",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/ulikunitz/xz",
     importpath = "github.com/ulikunitz/xz",
     visibility = ["//visibility:public"],
     deps = [

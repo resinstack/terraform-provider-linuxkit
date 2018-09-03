@@ -10,7 +10,7 @@ go_library(
         "prefix.go",
         "sort.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/go-multierror",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/go-multierror",
     importpath = "github.com/hashicorp/go-multierror",
     visibility = ["//visibility:public"],
     deps = ["//vendor/github.com/hashicorp/errwrap:go_default_library"],

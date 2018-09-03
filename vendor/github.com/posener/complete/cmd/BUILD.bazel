@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["cmd.go"],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/posener/complete/cmd",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/posener/complete/cmd",
     importpath = "github.com/posener/complete/cmd",
     visibility = ["//visibility:public"],
     deps = ["//vendor/github.com/posener/complete/cmd/install:go_default_library"],

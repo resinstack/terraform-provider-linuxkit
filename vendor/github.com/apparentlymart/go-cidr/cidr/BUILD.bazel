@@ -6,7 +6,7 @@ go_library(
         "cidr.go",
         "wrangling.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/apparentlymart/go-cidr/cidr",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/apparentlymart/go-cidr/cidr",
     importpath = "github.com/apparentlymart/go-cidr/cidr",
     visibility = ["//visibility:public"],
 )

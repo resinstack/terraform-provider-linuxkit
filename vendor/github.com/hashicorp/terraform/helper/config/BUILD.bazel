@@ -6,7 +6,7 @@ go_library(
         "decode.go",
         "validator.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/helper/config",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/helper/config",
     importpath = "github.com/hashicorp/terraform/helper/config",
     visibility = ["//visibility:public"],
     deps = [

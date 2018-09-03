@@ -7,7 +7,7 @@ go_library(
         "logger.go",
         "loggerv2.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/google.golang.org/grpc/grpclog",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/google.golang.org/grpc/grpclog",
     importpath = "google.golang.org/grpc/grpclog",
     visibility = ["//visibility:public"],
 )

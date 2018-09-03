@@ -7,7 +7,7 @@ go_library(
         "cipher.go",
         "const.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/golang.org/x/crypto/blowfish",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/golang.org/x/crypto/blowfish",
     importpath = "golang.org/x/crypto/blowfish",
     visibility = ["//visibility:public"],
 )

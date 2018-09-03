@@ -31,7 +31,7 @@ go_library(
         "writer.go",
         "writer2.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/ulikunitz/xz/lzma",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/ulikunitz/xz/lzma",
     importpath = "github.com/ulikunitz/xz/lzma",
     visibility = ["//visibility:public"],
     deps = [

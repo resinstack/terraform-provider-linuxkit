@@ -16,7 +16,7 @@ go_library(
         "tables.go",
         "tags.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/golang.org/x/text/language",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/golang.org/x/text/language",
     importpath = "golang.org/x/text/language",
     visibility = ["//visibility:public"],
     deps = ["//vendor/golang.org/x/text/internal/tag:go_default_library"],

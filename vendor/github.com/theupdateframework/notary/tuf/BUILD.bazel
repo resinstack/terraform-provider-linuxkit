@@ -6,7 +6,7 @@ go_library(
         "builder.go",
         "tuf.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/tuf",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/tuf",
     importpath = "github.com/theupdateframework/notary/tuf",
     visibility = ["//visibility:public"],
     deps = [

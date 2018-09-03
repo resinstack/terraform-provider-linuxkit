@@ -27,7 +27,7 @@ go_library(
         "resource_image_vhd.go",
         "resource_image_vmdk.go",
     ],
-    importpath = "github.com/thatsmrtalbot/terraform-provider-linuxkit/linuxkit",
+    importpath = "github.com/skybet/terraform-provider-linuxkit/linuxkit",
     visibility = ["//visibility:public"],
     deps = [
         "//vendor/github.com/hashicorp/terraform/helper/schema:go_default_library",

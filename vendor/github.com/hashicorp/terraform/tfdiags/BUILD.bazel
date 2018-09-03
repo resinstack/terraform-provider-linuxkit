@@ -13,7 +13,7 @@ go_library(
         "simple_warning.go",
         "source_range.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/tfdiags",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/tfdiags",
     importpath = "github.com/hashicorp/terraform/tfdiags",
     visibility = ["//visibility:public"],
     deps = [

@@ -9,7 +9,7 @@ go_library(
         "timestamp.go",
         "unmarshal.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/aws/aws-sdk-go/private/protocol",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/aws/aws-sdk-go/private/protocol",
     importpath = "github.com/aws/aws-sdk-go/private/protocol",
     visibility = ["//visibility:public"],
     deps = [

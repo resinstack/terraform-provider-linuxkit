@@ -16,7 +16,7 @@ go_library(
         "log.go",
         "transport.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/google.golang.org/grpc/internal/transport",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/google.golang.org/grpc/internal/transport",
     importpath = "google.golang.org/grpc/internal/transport",
     visibility = ["//vendor/google.golang.org/grpc:__subpackages__"],
     deps = [

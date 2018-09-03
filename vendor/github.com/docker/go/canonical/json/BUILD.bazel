@@ -11,7 +11,7 @@ go_library(
         "stream.go",
         "tags.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/docker/go/canonical/json",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/docker/go/canonical/json",
     importpath = "github.com/docker/go/canonical/json",
     visibility = ["//visibility:public"],
 )

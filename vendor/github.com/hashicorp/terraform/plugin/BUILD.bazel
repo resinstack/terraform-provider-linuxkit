@@ -11,7 +11,7 @@ go_library(
         "ui_input.go",
         "ui_output.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/plugin",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/plugin",
     importpath = "github.com/hashicorp/terraform/plugin",
     visibility = ["//visibility:public"],
     deps = [

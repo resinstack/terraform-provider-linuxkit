@@ -24,7 +24,7 @@ go_library(
         "stream.go",
         "testing.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/go-plugin",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/go-plugin",
     importpath = "github.com/hashicorp/go-plugin",
     visibility = ["//visibility:public"],
     deps = [

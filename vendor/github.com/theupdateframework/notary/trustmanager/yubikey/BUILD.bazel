@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["non_pkcs11.go"],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/trustmanager/yubikey",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/trustmanager/yubikey",
     importpath = "github.com/theupdateframework/notary/trustmanager/yubikey",
     visibility = ["//visibility:public"],
 )

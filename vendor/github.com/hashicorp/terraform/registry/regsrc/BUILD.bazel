@@ -7,7 +7,7 @@ go_library(
         "module.go",
         "regsrc.go",
     ],
-    importmap = "github.com/thatsmrtalbot/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/registry/regsrc",
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/hashicorp/terraform/registry/regsrc",
     importpath = "github.com/hashicorp/terraform/registry/regsrc",
     visibility = ["//visibility:public"],
     deps = ["//vendor/github.com/hashicorp/terraform/svchost:go_default_library"],
