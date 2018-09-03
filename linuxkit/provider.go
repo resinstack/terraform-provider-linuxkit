@@ -62,6 +62,7 @@ var globalCache = &cache{
 	kernels: make(map[string]*moby.KernelConfig, 0),
 	inits:   make(map[string][]string, 0),
 	images:  make(map[string]*moby.Image, 0),
+	files:   make(map[string]*moby.File, 0),
 	trust:   make(map[string]*moby.TrustConfig, 0),
 }
 
