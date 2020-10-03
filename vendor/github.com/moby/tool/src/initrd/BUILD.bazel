@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["initrd.go"],
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/moby/tool/src/initrd",
+    importpath = "github.com/moby/tool/src/initrd",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/moby/tool/src/pad4:go_default_library",
+        "//vendor/github.com/surma/gocpio:go_default_library",
+    ],
+)

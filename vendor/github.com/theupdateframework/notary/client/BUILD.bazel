@@ -1,0 +1,32 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "client.go",
+        "delegations.go",
+        "errors.go",
+        "helpers.go",
+        "interface.go",
+        "repo.go",
+        "tufclient.go",
+        "witness.go",
+    ],
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/theupdateframework/notary/client",
+    importpath = "github.com/theupdateframework/notary/client",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/docker/go/canonical/json:go_default_library",
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+        "//vendor/github.com/theupdateframework/notary:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/client/changelist:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/cryptoservice:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/storage:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/trustmanager:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/trustpinning:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/tuf:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/tuf/data:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/tuf/signed:go_default_library",
+        "//vendor/github.com/theupdateframework/notary/tuf/utils:go_default_library",
+    ],
+)

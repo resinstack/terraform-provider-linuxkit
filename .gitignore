@@ -1,1 +1,6 @@
 dist/
+/bazel-*
+/terraform.d
+/.terraform
+/.vscode
+/bin

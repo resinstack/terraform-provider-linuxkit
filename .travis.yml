@@ -1,0 +1,30 @@
+dist: trusty
+sudo: required
+language: go
+go:
+- '1.11'
+stages:
+- test
+- release
+addons:
+  apt:
+    sources:
+    - sourceline: deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8
+      key_url: https://storage.googleapis.com/bazel-apt/doc/apt-key.pub.gpg
+    packages:
+    - bazel
+jobs:
+  include:
+  - stage: test
+    script: make test
+  - stage: release
+    script: make bundle
+    deploy:
+      provider: releases
+      api_key:
+        secure: rps6KnAa6v8k9r0Ol0q0JthqodzNZRcBCbs4SfpRRwvZto49sWk7bf1YIsEf4s6CXqeu0EtYpiYy5ZUX/0Wz0fR1LEE8V/IeSUKkzpDSFg5KNjxUNBNYpNXCfWtTIeWNng+hwQNJUC2uKfP+gPx5Uzp5M6OQwHFVe3Xm1ZCbtQyTUqc+Bh5oBKglFUts2KCa8gsG4m5cwbiBDBILBS+heK6T4DnPGLKaFt8/z/usCnQAlCKODARASAAHzr7oWwiN9l6c3vDdHxvp7CEkDXGmoTRkg2JBWkiH4y+bMv27U/ZkyyVB8jTUmuYReJPMsklr4TijGu8VhBsa29Dfi/h/Kd6ssD/XKCNCR4cH30auEyLf1nstXyXXDFffrCjh1RJ7lPfg9FH6JCOj3BCKjRtxwdoVmsedqkUME1FsTgDvwZZkbSR+3GSUGMMiIC+2VtAo2dH/DN0i8bt2ZthqCWOY2sMxdtxLZwULv3e3dS6vjELuEEsMuwUW6azTV2M+AvRRTIwcz+0ajOA9kOSTh/zH4wNAEFZmlH6poDlGh9NU2TeWZLYgii1HCnerJ8ew5ojUdpp5QXK8a/nvCQwZNR1pf/zLiiQ7MsGyOLvk9GBB0+nL+JdJMg8L1IsAepMp/N+xhWFYrzRmsMd64qsrV3DYIl0XtOpQ2gPgpSg+123A8n8=
+      file: release.tar.gz
+      skip_cleanup: true
+      on:
+        tags: true
+        repo: skybet/terraform-provider-linuxkit

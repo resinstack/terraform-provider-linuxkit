@@ -1,0 +1,52 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "const.go",
+        "error.go",
+        "params.go",
+        "pkcs11.go",
+        "pkcs11.h",
+        "pkcs11f.h",
+        "pkcs11go.h",
+        "pkcs11t.h",
+        "types.go",
+    ],
+    cgo = True,
+    clinkopts = [
+        "-lltdl",
+    ] + select({
+        "@io_bazel_rules_go//go/platform:darwin": [
+            "-lltdl -L/usr/local/lib/",
+        ],
+        "@io_bazel_rules_go//go/platform:freebsd": [
+            "-lltdl -L/usr/local/lib/",
+        ],
+        "@io_bazel_rules_go//go/platform:linux": [
+            "-lltdl -ldl",
+        ],
+        "@io_bazel_rules_go//go/platform:openbsd": [
+            "-lltdl -L/usr/local/lib/",
+        ],
+        "//conditions:default": [],
+    }),
+    copts = select({
+        "@io_bazel_rules_go//go/platform:darwin": [
+            "-I/usr/local/share/libtool",
+        ],
+        "@io_bazel_rules_go//go/platform:freebsd": [
+            "-I/usr/local/include/",
+        ],
+        "@io_bazel_rules_go//go/platform:openbsd": [
+            "-I/usr/local/include/",
+        ],
+        "@io_bazel_rules_go//go/platform:windows": [
+            "-DREPACK_STRUCTURES",
+        ],
+        "//conditions:default": [],
+    }),
+    importmap = "github.com/skybet/terraform-provider-linuxkit/vendor/github.com/miekg/pkcs11",
+    importpath = "github.com/miekg/pkcs11",
+    visibility = ["//visibility:public"],
+)

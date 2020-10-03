@@ -1,0 +1,55 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "data_source_config.go",
+        "data_source_file.go",
+        "data_source_image.go",
+        "data_source_init.go",
+        "data_source_kernel.go",
+        "data_source_trust.go",
+        "provider.go",
+        "resource_build.go",
+        "resource_image_aws.go",
+        "resource_image_dynamic_vhd.go",
+        "resource_image_gcp.go",
+        "resource_image_iso_bios.go",
+        "resource_image_iso_efi.go",
+        "resource_image_kernel_initrd.go",
+        "resource_image_kernel_squashfs.go",
+        "resource_image_qcow2_bios.go",
+        "resource_image_qcow2_efi.go",
+        "resource_image_raw_bios.go",
+        "resource_image_raw_efi.go",
+        "resource_image_rpi3.go",
+        "resource_image_tar_kernel_initrd.go",
+        "resource_image_vhd.go",
+        "resource_image_vmdk.go",
+    ],
+    importpath = "github.com/skybet/terraform-provider-linuxkit/linuxkit",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/hashicorp/terraform/helper/schema:go_default_library",
+        "//vendor/github.com/hashicorp/terraform/terraform:go_default_library",
+        "//vendor/github.com/mitchellh/go-homedir:go_default_library",
+        "//vendor/github.com/moby/tool/src/moby:go_default_library",
+        "//vendor/github.com/opencontainers/runtime-spec/specs-go:go_default_library",
+        "//vendor/github.com/pkg/errors:go_default_library",
+        "//vendor/gopkg.in/yaml.v2:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = [
+        "data_source_init_test.go",
+        "provider_test.go",
+    ],
+    embed = [":go_default_library"],
+    deps = [
+        "//vendor/github.com/hashicorp/terraform/helper/resource:go_default_library",
+        "//vendor/github.com/hashicorp/terraform/helper/schema:go_default_library",
+        "//vendor/github.com/hashicorp/terraform/terraform:go_default_library",
+    ],
+)
