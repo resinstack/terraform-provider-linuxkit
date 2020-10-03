@@ -1,7 +1,7 @@
 package linuxkit
 
 import (
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/moby/tool/src/moby"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
 )

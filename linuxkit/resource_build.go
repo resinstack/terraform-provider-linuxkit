@@ -11,7 +11,7 @@ import (
 	"github.com/moby/tool/src/moby"
 	"github.com/pkg/errors"
 
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )
 
 func buildResource() *schema.Resource {

@@ -11,8 +11,8 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/hashicorp/terraform/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 	"github.com/mitchellh/go-homedir"
 	"github.com/moby/tool/src/moby"
 	"github.com/pkg/errors"
@@ -22,12 +22,13 @@ import (
 func Provider() terraform.ResourceProvider {
 	return &schema.Provider{
 		DataSourcesMap: map[string]*schema.Resource{
-			"linuxkit_kernel": kernelDataSource(),
-			"linuxkit_init":   initDataSource(),
-			"linuxkit_image":  imageDataSource(),
-			"linuxkit_trust":  trustDataSource(),
-			"linuxkit_config": configDataSource(),
-			"linuxkit_file":   fileDataSource(),
+			"linuxkit_kernel":   kernelDataSource(),
+			"linuxkit_init":     initDataSource(),
+			"linuxkit_image":    imageDataSource(),
+			"linuxkit_trust":    trustDataSource(),
+			"linuxkit_config":   configDataSource(),
+			"linuxkit_file":     fileDataSource(),
+			"linuxkit_metadata": metadataDataSource(),
 		},
 
 		ResourcesMap: map[string]*schema.Resource{
