@@ -6,7 +6,7 @@ import (
 	"gopkg.in/yaml.v2"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/moby/tool/src/moby"
+	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
 )
 
 func withConfigSchema(s map[string]*schema.Schema) {

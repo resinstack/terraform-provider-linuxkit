@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/moby/tool/src/moby"
+	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
 )
 
 func imageQcow2BiosResource() *schema.Resource {
@@ -68,7 +68,7 @@ func imageQcow2BiosCreate(d *schema.ResourceData, meta interface{}) error {
 
 	defer os.RemoveAll(dir)
 
-	err = moby.Formats(filepath.Join(dir, "base"), build, []string{"qcow2-bios"}, size)
+	err = moby.Formats(filepath.Join(dir, "base"), build, []string{"qcow2-bios"}, size, false)
 	if err != nil {
 		return err
 	}

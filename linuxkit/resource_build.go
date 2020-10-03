@@ -8,7 +8,7 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/moby/tool/src/moby"
+	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
 	"github.com/pkg/errors"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
@@ -100,7 +100,7 @@ func buildCreate(d *schema.ResourceData, meta interface{}) error {
 
 	defer outputFile.Close()
 
-	err = moby.Build(config, outputFile, true, typ)
+	err = moby.Build(config, outputFile, true, typ, true)
 	if err != nil {
 		return err
 	}

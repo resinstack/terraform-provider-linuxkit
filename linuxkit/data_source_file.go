@@ -2,7 +2,7 @@ package linuxkit
 
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/moby/tool/src/moby"
+	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
 )
 
 func fileDataSource() *schema.Resource {
