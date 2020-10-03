@@ -49,54 +49,40 @@ data "linuxkit_trust" "default" {
 }
 
 data "linuxkit_config" "sshd" {
-  kernel = "${data.linuxkit_kernel.kernel.id}"
-  init   = ["${data.linuxkit_init.init.id}"]
+  kernel = data.linuxkit_kernel.kernel.id
+  init   = [data.linuxkit_init.init.id]
 
   onboot = [
-    "${data.linuxkit_image.sysctl.id}",
-    "${data.linuxkit_image.rngd1.id}",
+    data.linuxkit_image.sysctl.id,
+    data.linuxkit_image.rngd1.id,
   ]
 
   services = [
-    "${data.linuxkit_image.getty.id}",
-    "${data.linuxkit_image.rngd.id}",
-    "${data.linuxkit_image.dhcpcd.id}",
-    "${data.linuxkit_image.sshd.id}",
+    data.linuxkit_image.getty.id,
+    data.linuxkit_image.rngd.id,
+    data.linuxkit_image.dhcpcd.id,
+    data.linuxkit_image.sshd.id,
   ]
 
-  trust = "${data.linuxkit_trust.default.id}"
+  trust = data.linuxkit_trust.default.id
 }
 
 resource "linuxkit_build" "sshd" {
-  config      = "${data.linuxkit_config.sshd.id}"
+  config_yaml = data.linuxkit_config.sshd.yaml
   destination = "${path.module}/sshd.tar"
 }
 
 resource "linuxkit_image_kernel_initrd" "sshd" {
-  build = "${linuxkit_build.sshd.destination}"
+  build = linuxkit_build.sshd.destination
 
-  destination {
+  destination = {
     kernel  = "${path.module}/sshd-kernel"
     initrd  = "${path.module}/sshd-initrd.img"
     cmdline = "${path.module}/sshd-cmdline"
   }
 }
 
-resource "linuxkit_image_aws" "sshd" {
-  build = "${linuxkit_build.sshd.destination}"
-
-  size        = 1024
-  destination = "${path.module}/sshd-aws.raw"
-}
-
-resource "linuxkit_image_dynamic_vhd" "sshd" {
-  build = "${linuxkit_build.sshd.destination}"
-
-  destination = "${path.module}/sshd-dynamic.vhd"
-}
-
-resource "linuxkit_image_gcp" "sshd" {
-  build = "${linuxkit_build.sshd.destination}"
-
-  destination = "${path.module}/sshd-gcp.tar.gz"
+resource "linuxkit_image_raw_bios" "sshd" {
+  build = linuxkit_build.sshd.destination
+  destination = "${path.module}/sshd.raw"
 }

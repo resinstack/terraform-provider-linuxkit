@@ -3,84 +3,47 @@ module github.com/resinstack/terraform-provider-linuxkit
 go 1.15
 
 require (
-	github.com/Microsoft/go-winio v0.4.11
-	github.com/agext/levenshtein v1.2.2
-	github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412
-	github.com/apparentlymart/go-cidr v1.0.1
-	github.com/apparentlymart/go-textseg v1.0.0
-	github.com/armon/go-radix v1.0.0
-	github.com/aws/aws-sdk-go v1.25.3
-	github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973
-	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d
-	github.com/bgentry/speakeasy v0.1.0
-	github.com/blang/semver v3.5.1+incompatible
-	github.com/containerd/containerd v1.1.3
-	github.com/davecgh/go-spew v1.1.1
-	github.com/docker/distribution v2.6.0-rc.1.0.20180828230305-b12bd4004afc+incompatible
-	github.com/docker/docker v1.4.2-0.20171101031234-ba99c19b593b
-	github.com/docker/go v1.5.1-1
-	github.com/docker/go-connections v0.4.0
-	github.com/docker/go-metrics v0.0.0-20180209012529-399ea8c73916
-	github.com/docker/go-units v0.3.3
-	github.com/fatih/color v1.7.0
-	github.com/go-ini/ini v1.38.2
-	github.com/gogo/protobuf v1.1.1
-	github.com/golang/protobuf v1.4.2
-	github.com/gorilla/context v1.1.1
-	github.com/gorilla/mux v1.6.2
-	github.com/hashicorp/errwrap v1.0.0
-	github.com/hashicorp/go-cleanhttp v0.5.1
-	github.com/hashicorp/go-getter v1.4.2-0.20200106182914-9813cbd4eb02
-	github.com/hashicorp/go-hclog v0.9.2
-	github.com/hashicorp/go-multierror v1.0.0
-	github.com/hashicorp/go-plugin v1.3.0
-	github.com/hashicorp/go-safetemp v1.0.0
-	github.com/hashicorp/go-uuid v1.0.1
-	github.com/hashicorp/go-version v1.2.1
-	github.com/hashicorp/hcl v1.0.0
-	github.com/hashicorp/hcl2 v0.0.0-20180822193130-ed8144cda141
-	github.com/hashicorp/hil v0.0.0-20170627220502-fa9f258a9250
-	github.com/hashicorp/logutils v1.0.0
-	github.com/hashicorp/terraform v0.11.8
+	github.com/Microsoft/go-winio v0.4.11 // indirect
+	github.com/Shopify/logrus-bugsnag v0.0.0-20171204204709-577dee27f20d // indirect
+	github.com/bitly/go-hostpool v0.1.0 // indirect
+	github.com/bitly/go-simplejson v0.5.0 // indirect
+	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
+	github.com/bugsnag/bugsnag-go v1.5.3 // indirect
+	github.com/bugsnag/panicwrap v1.2.0 // indirect
+	github.com/cenkalti/backoff v2.2.1+incompatible // indirect
+	github.com/cloudflare/cfssl v1.4.1 // indirect
+	github.com/containerd/containerd v1.1.3 // indirect
+	github.com/docker/distribution v2.6.0-rc.1.0.20180828230305-b12bd4004afc+incompatible // indirect
+	github.com/docker/docker v1.4.2-0.20171101031234-ba99c19b593b // indirect
+	github.com/docker/go v1.5.1-1 // indirect
+	github.com/docker/go-connections v0.4.0 // indirect
+	github.com/docker/go-metrics v0.0.0-20180209012529-399ea8c73916 // indirect
+	github.com/docker/go-units v0.3.3 // indirect
+	github.com/docker/libtrust v0.0.0-20160708172513-aabc10ec26b7 // indirect
+	github.com/gofrs/uuid v3.3.0+incompatible // indirect
+	github.com/gorilla/context v1.1.1 // indirect
+	github.com/gorilla/mux v1.6.2 // indirect
+	github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed // indirect
 	github.com/hashicorp/terraform-plugin-sdk v1.16.0
-	github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d
-	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
-	github.com/mattn/go-colorable v0.1.1
-	github.com/mattn/go-isatty v0.0.5
-	github.com/matttproud/golang_protobuf_extensions v1.0.1
-	github.com/miekg/pkcs11 v0.0.0-20180817151620-df0db7a16a9e
-	github.com/mitchellh/cli v1.1.1
-	github.com/mitchellh/copystructure v1.0.0
+	github.com/jinzhu/gorm v1.9.16 // indirect
+	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0 // indirect
+	github.com/lib/pq v1.8.0 // indirect
+	github.com/mattn/go-sqlite3 v1.14.4 // indirect
+	github.com/miekg/pkcs11 v0.0.0-20180817151620-df0db7a16a9e // indirect
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/mitchellh/go-testing-interface v1.0.4
-	github.com/mitchellh/go-wordwrap v1.0.0
-	github.com/mitchellh/hashstructure v1.0.0
-	github.com/mitchellh/mapstructure v1.1.2
-	github.com/mitchellh/reflectwalk v1.0.1
 	github.com/moby/tool v0.0.0-20180704150857-977dec7ae206
-	github.com/oklog/run v1.0.0
-	github.com/opencontainers/go-digest v1.0.0-rc1
-	github.com/opencontainers/image-spec v1.0.1
+	github.com/opencontainers/go-digest v1.0.0-rc1 // indirect
+	github.com/opencontainers/image-spec v1.0.1 // indirect
 	github.com/opencontainers/runtime-spec v1.0.1
 	github.com/pkg/errors v0.8.1
-	github.com/posener/complete v1.2.1
-	github.com/prometheus/client_golang v0.9.0-pre1.0.20180828204807-676eaf6b9480
-	github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4
-	github.com/prometheus/common v0.0.0-20180801064454-c7de2306084e
-	github.com/prometheus/procfs v0.0.0-20180725123919-05ee40e3a273
-	github.com/sirupsen/logrus v1.0.6
-	github.com/surma/gocpio v1.0.2-0.20130630172628-c01aebd00e02
-	github.com/theupdateframework/notary v0.6.1
-	github.com/ulikunitz/xz v0.5.7
-	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f
-	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415
-	github.com/xeipuuv/gojsonschema v0.0.0-20180816142147-da425ebb7609
-	github.com/zclconf/go-cty v1.2.1
-	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
-	golang.org/x/net v0.0.0-20200707034311-ab3426394381
-	golang.org/x/sys v0.0.0-20200523222454-059865788121
-	golang.org/x/text v0.3.3
-	google.golang.org/genproto v0.0.0-20200711021454-869866162049
-	google.golang.org/grpc v1.30.0
+	github.com/spf13/viper v1.7.1 // indirect
+	github.com/surma/gocpio v1.0.2-0.20130630172628-c01aebd00e02 // indirect
+	github.com/theupdateframework/notary v0.6.1 // indirect
+	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
+	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
+	github.com/xeipuuv/gojsonschema v0.0.0-20180816142147-da425ebb7609 // indirect
+	gopkg.in/dancannon/gorethink.v3 v3.0.5 // indirect
+	gopkg.in/fatih/pool.v2 v2.0.0 // indirect
+	gopkg.in/gorethink/gorethink.v3 v3.0.5 // indirect
 	gopkg.in/yaml.v2 v2.2.4
 )
