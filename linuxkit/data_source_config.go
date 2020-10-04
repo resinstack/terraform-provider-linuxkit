@@ -72,7 +72,7 @@ func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 		if kernel, ok := globalCache.kernels[v.(string)]; ok {
 			config.Kernel = *kernel
 		} else {
-			return nil, nil, errors.New("Kernel not found")
+			return nil, nil, errors.New("kernel not found")
 		}
 	}
 
@@ -81,7 +81,7 @@ func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 			if init, ok := globalCache.inits[id]; ok {
 				config.Init = append(config.Init, init...)
 			} else {
-				return nil, nil, errors.New("Init image not found")
+				return nil, nil, errors.New("init image not found")
 			}
 		}
 	}
@@ -91,7 +91,7 @@ func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 			if image, ok := globalCache.images[id]; ok {
 				config.Onboot = append(config.Onboot, image)
 			} else {
-				return nil, nil, errors.New("Onboot image not found")
+				return nil, nil, errors.New("onboot image not found")
 			}
 		}
 	}
@@ -101,7 +101,7 @@ func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 			if image, ok := globalCache.images[id]; ok {
 				config.Onshutdown = append(config.Onshutdown, image)
 			} else {
-				return nil, nil, errors.New("Onshutdown image not found")
+				return nil, nil, errors.New("onshutdown image not found")
 			}
 		}
 	}
@@ -111,7 +111,7 @@ func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 			if image, ok := globalCache.images[id]; ok {
 				config.Services = append(config.Services, image)
 			} else {
-				return nil, nil, errors.New("Services image not found")
+				return nil, nil, errors.New("services image not found")
 			}
 		}
 	}
@@ -121,7 +121,7 @@ func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 			if file, ok := globalCache.files[id]; ok {
 				config.Files = append(config.Files, *file)
 			} else {
-				return nil, nil, errors.New("File config not found")
+				return nil, nil, errors.New("file config not found")
 			}
 		}
 	}
@@ -130,7 +130,7 @@ func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 		if trust, ok := globalCache.trust[v.(string)]; ok {
 			config.Trust = *trust
 		} else {
-			return nil, nil, errors.New("Trust config not found")
+			return nil, nil, errors.New("trust config not found")
 		}
 	}
 
