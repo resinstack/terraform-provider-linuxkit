@@ -11,8 +11,8 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
-	"github.com/mitchellh/go-homedir"
 	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
+	"github.com/mitchellh/go-homedir"
 	"github.com/pkg/errors"
 )
 
