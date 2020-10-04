@@ -1,18 +1,12 @@
 package linuxkit
 
 import (
-	"crypto/sha256"
-	"encoding/hex"
-	"encoding/json"
-	"io"
 	"os"
 	"path/filepath"
-	"sync"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
-	"github.com/mitchellh/go-homedir"
 	"github.com/pkg/errors"
 )
 
@@ -52,30 +46,6 @@ func Provider() terraform.ResourceProvider {
 	}
 }
 
-// globalCache keeps the instances of the internal types of ignition generated
-// by the different data resources with the goal to be reused by the
-// ignition_config data resource. The key of the maps are a hash of the types
-// calculated on the type serialized to JSON.
-var globalCache = &cache{
-	configs: make(map[string]*moby.Moby),
-	kernels: make(map[string]*moby.KernelConfig),
-	inits:   make(map[string][]string),
-	images:  make(map[string]*moby.Image),
-	files:   make(map[string]*moby.File),
-	trust:   make(map[string]*moby.TrustConfig),
-}
-
-type cache struct {
-	configs map[string]*moby.Moby
-	kernels map[string]*moby.KernelConfig
-	inits   map[string][]string
-	images  map[string]*moby.Image
-	files   map[string]*moby.File
-	trust   map[string]*moby.TrustConfig
-
-	sync.Mutex
-}
-
 func configureProvider(*schema.ResourceData) (meta interface{}, err error) {
 	moby.MobyDir, err = defaultMobyConfigDir()
 	if err != nil {
@@ -93,107 +63,4 @@ func configureProvider(*schema.ResourceData) (meta interface{}, err error) {
 	}
 
 	return
-}
-
-func defaultMobyConfigDir() (string, error) {
-	mobyDefaultDir := ".moby"
-	home, err := homedir.Dir()
-	return filepath.Join(home, mobyDefaultDir), err
-}
-
-func (c *cache) addKernel(k *moby.KernelConfig) string {
-	c.Lock()
-	defer c.Unlock()
-
-	id := id(k)
-	c.kernels[id] = k
-
-	return id
-}
-
-func (c *cache) addInit(i []string) string {
-	c.Lock()
-	defer c.Unlock()
-
-	id := id(i)
-	c.inits[id] = i
-
-	return id
-}
-
-func (c *cache) addImage(i *moby.Image) string {
-	c.Lock()
-	defer c.Unlock()
-
-	id := id(i)
-	c.images[id] = i
-
-	return id
-}
-
-func (c *cache) addFile(i *moby.File) string {
-	c.Lock()
-	defer c.Unlock()
-
-	id := id(i)
-	c.files[id] = i
-
-	return id
-}
-
-func (c *cache) addConfig(m *moby.Moby) string {
-	c.Lock()
-	defer c.Unlock()
-
-	id := id(m)
-	c.configs[id] = m
-
-	return id
-}
-
-func (c *cache) addTrust(t *moby.TrustConfig) string {
-	c.Lock()
-	defer c.Unlock()
-
-	id := id(t)
-	c.trust[id] = t
-
-	return id
-}
-
-func id(input interface{}) string {
-	b, _ := json.Marshal(input)
-	return hash(string(b))
-}
-
-func hash(s string) string {
-	sha := sha256.Sum256([]byte(s))
-	return hex.EncodeToString(sha[:])
-}
-
-func stringPtr(s string) *string {
-	return &s
-}
-
-func copyFile(src, dst string) error {
-	sf, err := os.Open(src)
-	if err != nil {
-		return err
-	}
-
-	defer sf.Close()
-
-	df, err := os.Create(dst)
-	if err != nil {
-		return err
-	}
-
-	defer df.Close()
-
-	_, err = io.Copy(df, sf)
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
