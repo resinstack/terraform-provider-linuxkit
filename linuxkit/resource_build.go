@@ -100,7 +100,7 @@ func buildCreate(d *schema.ResourceData, meta interface{}) error {
 
 	defer outputFile.Close()
 
-	err = moby.Build(config, outputFile, true, typ, true)
+	err = moby.Build(config, outputFile, false, typ, false)
 	if err != nil {
 		return err
 	}
