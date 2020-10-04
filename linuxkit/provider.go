@@ -57,12 +57,12 @@ func Provider() terraform.ResourceProvider {
 // ignition_config data resource. The key of the maps are a hash of the types
 // calculated on the type serialized to JSON.
 var globalCache = &cache{
-	configs: make(map[string]*moby.Moby, 0),
-	kernels: make(map[string]*moby.KernelConfig, 0),
-	inits:   make(map[string][]string, 0),
-	images:  make(map[string]*moby.Image, 0),
-	files:   make(map[string]*moby.File, 0),
-	trust:   make(map[string]*moby.TrustConfig, 0),
+	configs: make(map[string]*moby.Moby),
+	kernels: make(map[string]*moby.KernelConfig),
+	inits:   make(map[string][]string),
+	images:  make(map[string]*moby.Image),
+	files:   make(map[string]*moby.File),
+	trust:   make(map[string]*moby.TrustConfig),
 }
 
 type cache struct {
