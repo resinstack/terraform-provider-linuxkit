@@ -4,9 +4,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
-	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sync"
@@ -175,30 +173,6 @@ func hash(s string) string {
 
 func stringPtr(s string) *string {
 	return &s
-}
-
-func fileHash(file string) (string, error) {
-	data, err := ioutil.ReadFile(file)
-
-	if os.IsNotExist(err) {
-		return "", nil
-	}
-
-	if err != nil {
-		return "", err
-	}
-
-	return fmt.Sprintf("%x", sha256.Sum256(data)), nil
-}
-
-func mergeHash(hash ...string) string {
-	hasher := sha256.New()
-	for _, h := range hash {
-		hasher.Sum([]byte(h))
-	}
-
-	return fmt.Sprintf("%x", hasher.Sum(nil))
-
 }
 
 func copyFile(src, dst string) error {
