@@ -1,7 +1,7 @@
 package linuxkit
 
 import (
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
 )
 

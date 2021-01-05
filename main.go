@@ -5,7 +5,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/hashicorp/terraform-plugin-sdk/plugin"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 
 	"github.com/resinstack/terraform-provider-linuxkit/linuxkit"
 )

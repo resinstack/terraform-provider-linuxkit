@@ -4,14 +4,13 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
 	"github.com/pkg/errors"
 )
 
 // Provider linuxkit
-func Provider() terraform.ResourceProvider {
+func Provider() *schema.Provider {
 	return &schema.Provider{
 		DataSourcesMap: map[string]*schema.Resource{
 			"linuxkit_kernel":   kernelDataSource(),
