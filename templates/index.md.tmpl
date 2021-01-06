@@ -1,0 +1,19 @@
+---
+layout: ""
+page_title: "Provider: linuxkit"
+description: |-
+  The linuxkit provider provides a way to build complete linuxkit system images with terraform.
+---
+
+# Linuxkit Provider
+
+The linuxkit provider provides you a way to declaratively manage all
+of the services running in an linuxkit system image.  Since linuxkit
+images are immutable machine images, this means you can make entire
+bespoke operating system builds with terraform, check your
+configrations into your VCS of choice and run builds of entire OS
+images using continuous integration.
+
+## Example Usage
+
+{{tffile "examples/sshd/linuxkit.tf"}}

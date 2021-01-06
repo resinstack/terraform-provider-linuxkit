@@ -7,6 +7,8 @@ import (
 
 func trustDataSource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_trust` is a set of images and organizations that should be trusted based on their docker notary signatures.",
+
 		Read: trustRead,
 
 		Schema: map[string]*schema.Schema{

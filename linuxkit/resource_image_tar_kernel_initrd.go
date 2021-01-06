@@ -14,6 +14,8 @@ import (
 
 func imageTarKernalInitrdResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_tar_kernel_initrd` produces a tarball containing a kernel and initrd suitable for PXE booting.",
+
 		Create: imageTarKernalInitrdCreate,
 		Read:   imageTarKernalInitrdRead,
 		Delete: imageTarKernalInitrdDelete,

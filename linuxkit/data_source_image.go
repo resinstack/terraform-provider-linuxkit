@@ -8,6 +8,8 @@ import (
 
 func imageDataSource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image` is a single image to be included in the system.",
+
 		Read: imageRead,
 
 		Schema: map[string]*schema.Schema{

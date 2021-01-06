@@ -14,6 +14,8 @@ import (
 
 func imageKernelSquashfsResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_kernel_squashfs` process a build tarball and places the root filesystem on a squashfs.",
+
 		Create: imageKernelSquashfsCreate,
 		Read:   imageKernelSquashfsRead,
 		Delete: imageKernelSquashfsDelete,

@@ -14,6 +14,8 @@ import (
 
 func imageRpi3Resource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_rpi3` produces a filesystem image suitable for booting a Raspberry Pi model 3, and by extension compatible boards.",
+
 		Create: imageRpi3Create,
 		Read:   imageRpi3Read,
 		Delete: imageRpi3Delete,

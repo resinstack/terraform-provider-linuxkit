@@ -14,6 +14,8 @@ import (
 
 func imageGcpResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_gcp` produces an image tarball suitable for uploading to GCP.",
+
 		Create: imageGcpCreate,
 		Read:   imageGcpRead,
 		Delete: imageGcpDelete,

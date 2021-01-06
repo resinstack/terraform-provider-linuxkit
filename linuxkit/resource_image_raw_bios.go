@@ -14,6 +14,8 @@ import (
 
 func imageRawBiosResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_raw_bios` produces an MBR image suitable for booting BIOS systems.",
+
 		Create: imageRawBiosCreate,
 		Read:   imageRawBiosRead,
 		Delete: imageRawBiosDelete,

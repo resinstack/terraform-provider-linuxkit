@@ -14,6 +14,8 @@ import (
 
 func imageVmdkResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_vmdk` produces a VMDK file from the build tarball.",
+
 		Create: imageVmdkCreate,
 		Read:   imageVmdkRead,
 		Delete: imageVmdkDelete,

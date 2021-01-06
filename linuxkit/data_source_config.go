@@ -144,6 +144,8 @@ func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 
 func configDataSource() *schema.Resource {
 	resource := &schema.Resource{
+		Description: "`linuxkit_config` represents a complete configuration for a full machine.  It unifies the kernel, init, onboot, and service components into a single configuration to be built.",
+
 		Read: configRead,
 
 		Schema: map[string]*schema.Schema{

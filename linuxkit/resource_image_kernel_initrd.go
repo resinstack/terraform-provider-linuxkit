@@ -14,6 +14,8 @@ import (
 
 func imageKernelInitrdResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_kernel_initrd` produces a kernel and initrd suitable for PXE booting.  If you want an archive of the output, use `linuxkit_image_tar_kernel_initrd` instead.",
+
 		Create: imageKernelInitrdCreate,
 		Read:   imageKernelInitrdRead,
 		Delete: imageKernelInitrdDelete,

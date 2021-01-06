@@ -14,6 +14,8 @@ import (
 
 func imageIsoEfiResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_iso_efi` produces an ISO suitable for booting a machine with UEFI booting.",
+
 		Create: imageIsoEfiCreate,
 		Read:   imageIsoEfiRead,
 		Delete: imageIsoEfiDelete,

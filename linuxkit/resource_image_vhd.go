@@ -14,6 +14,8 @@ import (
 
 func imageVhdResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_vhd` produces a VHD file with provisioned storage.",
+
 		Create: imageVhdCreate,
 		Read:   imageVhdRead,
 		Delete: imageVhdDelete,

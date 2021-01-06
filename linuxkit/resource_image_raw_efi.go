@@ -14,6 +14,8 @@ import (
 
 func imageRawEfiResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_raw_efi` produces a GPT image file suitable for booting an UEFI enabled system.",
+
 		Create: imageRawEfiCreate,
 		Read:   imageRawEfiRead,
 		Delete: imageRawEfiDelete,

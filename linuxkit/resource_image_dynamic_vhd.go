@@ -14,6 +14,8 @@ import (
 
 func imageDynamicVhdResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_dynamic_vhd` produces a sparse VHD from a build tarball.",
+
 		Create: imageDynamicVhdCreate,
 		Read:   imageDynamicVhdRead,
 		Delete: imageDynamicVhdDelete,

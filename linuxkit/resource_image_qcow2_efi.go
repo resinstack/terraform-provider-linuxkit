@@ -14,6 +14,8 @@ import (
 
 func imageQcow2EfiResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_qcow_efi` produces a qcow2 filesystem bootable on EFI systems.",
+
 		Create: imageQcow2EfiCreate,
 		Read:   imageQcow2EfiRead,
 		Delete: imageQcow2EfiDelete,

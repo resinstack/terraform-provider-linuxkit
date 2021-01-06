@@ -7,6 +7,8 @@ import (
 
 func kernelDataSource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_kernel` is a single kernel to be included in a `linuxkit_config`.",
+
 		Read: kernelRead,
 
 		Schema: map[string]*schema.Schema{

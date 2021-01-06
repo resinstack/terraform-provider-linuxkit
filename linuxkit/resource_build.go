@@ -16,6 +16,8 @@ import (
 
 func buildResource() *schema.Resource {
 	resource := &schema.Resource{
+		Description: "`linuxkit_build` assembles an image based on a `linuxkit_config`.  It will produce a tarball that contains the complete image in an intermediate format.",
+
 		Create: buildCreate,
 		Read:   buildRead,
 		Update: buildUpdate,

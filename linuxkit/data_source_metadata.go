@@ -13,6 +13,8 @@ import (
 
 func metadataDataSource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_metadata` data source can be used to convert a directory structure rooted at `base_path` and return it as a JSON formatted string.  Be aware that while linuxkit will parse an arbitrary size of metadata, most cloud providers limit this data.",
+
 		Read: metadataRead,
 
 		Schema: map[string]*schema.Schema{

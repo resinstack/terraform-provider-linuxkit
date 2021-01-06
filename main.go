@@ -1,8 +1,8 @@
 package main
 
 import (
-	"flag"
 	"context"
+	"flag"
 	"log"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"

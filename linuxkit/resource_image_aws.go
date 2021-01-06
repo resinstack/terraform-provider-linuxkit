@@ -15,6 +15,8 @@ import (
 
 func imageAwsResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_aws` produces an image suitable for importing into AWS EC2.",
+
 		Create: imageAwsCreate,
 		Read:   imageAwsRead,
 		Delete: imageAwsDelete,

@@ -7,6 +7,8 @@ import (
 
 func fileDataSource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_file` is a file you would like to include in the finished system image.",
+
 		Read: fileRead,
 
 		Schema: map[string]*schema.Schema{

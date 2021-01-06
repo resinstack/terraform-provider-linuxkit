@@ -6,6 +6,8 @@ import (
 
 func initDataSource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_init` defines the configuration section for init containers.",
+
 		Read: initRead,
 
 		Schema: map[string]*schema.Schema{

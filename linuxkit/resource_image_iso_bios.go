@@ -14,6 +14,8 @@ import (
 
 func imageIsoBiosResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`linuxkit_image_iso_bios` produces an ISO file suitable for booting on systems that support BIOS booting.",
+
 		Create: imageIsoBiosCreate,
 		Read:   imageIsoBiosRead,
 		Delete: imageIsoBiosDelete,
