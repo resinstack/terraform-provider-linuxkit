@@ -64,7 +64,7 @@ func imageRawBiosCreate(d *schema.ResourceData, meta interface{}) error {
 		return err
 	}
 
-	err = copyFile(filepath.Join(dir, "base-bios.iso"), destination)
+	err = copyFile(filepath.Join(dir, "base-bios.img"), destination)
 	if err != nil {
 		return err
 	}
