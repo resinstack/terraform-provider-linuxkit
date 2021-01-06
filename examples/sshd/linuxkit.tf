@@ -72,8 +72,7 @@ resource "linuxkit_build" "sshd" {
   destination = "${path.module}/sshd.tar"
 }
 
-resource "linuxkit_image_qcow2_bios" "sshd" {
+resource "linuxkit_image_raw_bios" "sshd" {
   build = linuxkit_build.sshd.destination
   destination = "${path.module}/sshd.raw"
-  size = 1
 }
