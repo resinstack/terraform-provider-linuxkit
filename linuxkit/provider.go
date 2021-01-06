@@ -37,7 +37,6 @@ func Provider() *schema.Provider {
 			"linuxkit_image_vhd":               imageVhdResource(),
 			"linuxkit_image_vmdk":              imageVmdkResource(),
 			"linuxkit_image_rpi3":              imageRpi3Resource(),
-			"linuxkit_image_qcow2_bios":        imageQcow2BiosResource(),
 			"linuxkit_image_qcow2_efi":         imageQcow2EfiResource(),
 		},
 
