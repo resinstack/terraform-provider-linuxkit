@@ -28,7 +28,7 @@ func imageKernelInitrdResource() *schema.Resource {
 			},
 
 			"destination": &schema.Schema{
-				Type:     schema.TypeMap,
+				Type:     schema.TypeSet,
 				Required: true,
 				ForceNew: true,
 
