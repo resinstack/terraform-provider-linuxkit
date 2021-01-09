@@ -30,31 +30,12 @@ func imageKernelInitrdResource() *schema.Resource {
 			},
 
 			"destination": &schema.Schema{
-				Type:     schema.TypeSet,
+				Type:     schema.TypeMap,
 				Required: true,
 				ForceNew: true,
 
-				Elem: &schema.Resource{
-					Schema: map[string]*schema.Schema{
-						"kernel": &schema.Schema{
-							Type:        schema.TypeString,
-							Description: "The destination of the generated kernel",
-							Required:    true,
-							ForceNew:    true,
-						},
-						"initrd": &schema.Schema{
-							Type:        schema.TypeString,
-							Description: "The destination of the generated initrd",
-							Required:    true,
-							ForceNew:    true,
-						},
-						"cmdline": &schema.Schema{
-							Type:        schema.TypeString,
-							Description: "The destination of the generated cmdline",
-							Required:    true,
-							ForceNew:    true,
-						},
-					},
+				Elem: &schema.Schema{
+					Type: schema.TypeString,
 				},
 			},
 		},
