@@ -17,7 +17,7 @@ func main() {
 	flag.Parse()
 
 	if debugMode {
-		err := plugin.Debug(context.Background(), "terraform.resinstack.io/resinstack/linuxkit",
+		err := plugin.Debug(context.Background(), "registry.terraform.io/resinstack/linuxkit",
 			&plugin.ServeOpts{ProviderFunc: linuxkit.Provider})
 		if err != nil {
 			log.Println(err.Error())
