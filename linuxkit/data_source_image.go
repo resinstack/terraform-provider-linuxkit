@@ -47,25 +47,22 @@ func imageDataSource() *schema.Resource {
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"type": &schema.Schema{
-							Type:        schema.TypeList,
+							Type:        schema.TypeString,
 							Description: "The mount kind",
 							Required:    true,
 							ForceNew:    true,
-							Elem:        &schema.Schema{Type: schema.TypeString},
 						},
 						"source": &schema.Schema{
-							Type:        schema.TypeList,
+							Type:        schema.TypeString,
 							Description: "The source path of the mount",
 							Optional:    true,
 							ForceNew:    true,
-							Elem:        &schema.Schema{Type: schema.TypeString},
 						},
 						"destination": &schema.Schema{
-							Type:        schema.TypeList,
+							Type:        schema.TypeString,
 							Description: "The destination path of the mount",
 							Optional:    true,
 							ForceNew:    true,
-							Elem:        &schema.Schema{Type: schema.TypeString},
 						},
 						"options": &schema.Schema{
 							Type:        schema.TypeList,
