@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     linuxkit = {
-      source  = "terraform.resinstack.io/resinstack/linuxkit"
-      version = "~> 1.0"
+      source  = "resinstack/linuxkit"
+      version = "0.0.4"
     }
   }
 }

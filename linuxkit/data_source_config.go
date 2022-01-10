@@ -2,7 +2,6 @@ package linuxkit
 
 import (
 	"errors"
-	"runtime"
 
 	"gopkg.in/yaml.v2"
 
@@ -56,12 +55,6 @@ func withConfigSchema(s map[string]*schema.Schema) {
 		Optional:    true,
 		ForceNew:    true,
 		Elem:        &schema.Schema{Type: schema.TypeString},
-	}
-	s["architecture"] = &schema.Schema{
-		Type: schema.TypeString,
-		Description: "Architecture to build for",
-		Optional: true,
-		ForceNew: true,
 	}
 }
 
@@ -124,12 +117,6 @@ func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 				return nil, nil, errors.New("file config not found")
 			}
 		}
-	}
-
-	if v, ok := d.GetOk("architecture"); ok {
-		config.Architecture = v.(string)
-	} else {
-		config.Architecture = runtime.GOARCH
 	}
 
 	byts, err := yaml.Marshal(config)

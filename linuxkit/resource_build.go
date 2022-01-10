@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"runtime"
 
 	"gopkg.in/yaml.v2"
 
@@ -50,6 +51,12 @@ func buildResource() *schema.Resource {
 				Type:        schema.TypeString,
 				Default:     "tar",
 				Description: "Type of build, can be tar or docker",
+				Optional:    true,
+			},
+			"architecture": &schema.Schema{
+				Type:        schema.TypeString,
+				Default:     runtime.GOARCH,
+				Description: "Architecture to build for, defaults to host",
 				Optional:    true,
 			},
 		},
@@ -104,7 +111,7 @@ func buildCreate(d *schema.ResourceData, meta interface{}) error {
 
 	cacheDir := defaultLinuxkitCache()
 
-	err = moby.Build(config, outputFile, false, typ, false, cacheDir, false)
+	err = moby.Build(config, outputFile, false, typ, false, cacheDir, false, d.Get("architecture").(string))
 	if err != nil {
 		return err
 	}
