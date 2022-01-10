@@ -56,13 +56,6 @@ func withConfigSchema(s map[string]*schema.Schema) {
 		ForceNew:    true,
 		Elem:        &schema.Schema{Type: schema.TypeString},
 	}
-
-	s["trust"] = &schema.Schema{
-		Type:        schema.TypeString,
-		Description: "The ID of the trust config",
-		Optional:    true,
-		ForceNew:    true,
-	}
 }
 
 func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
@@ -123,14 +116,6 @@ func fromConfigSchema(d *schema.ResourceData) (*moby.Moby, []byte, error) {
 			} else {
 				return nil, nil, errors.New("file config not found")
 			}
-		}
-	}
-
-	if v, ok := d.GetOk("trust"); ok {
-		if trust, ok := globalCache.trust[v.(string)]; ok {
-			config.Trust = *trust
-		} else {
-			return nil, nil, errors.New("trust config not found")
 		}
 	}
 

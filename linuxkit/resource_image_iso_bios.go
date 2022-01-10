@@ -61,7 +61,7 @@ func imageIsoBiosCreate(d *schema.ResourceData, meta interface{}) error {
 
 	defer os.RemoveAll(dir)
 
-	err = moby.Formats(filepath.Join(dir, "base"), build, []string{"iso-bios"}, 0, false)
+	err = moby.Formats(filepath.Join(dir, "base"), build, []string{"iso-bios"}, 0, defaultLinuxkitCache())
 	if err != nil {
 		return err
 	}

@@ -102,7 +102,9 @@ func buildCreate(d *schema.ResourceData, meta interface{}) error {
 
 	defer outputFile.Close()
 
-	err = moby.Build(config, outputFile, false, typ, false)
+	cacheDir := defaultLinuxkitCache()
+
+	err = moby.Build(config, outputFile, false, typ, false, cacheDir, false)
 	if err != nil {
 		return err
 	}

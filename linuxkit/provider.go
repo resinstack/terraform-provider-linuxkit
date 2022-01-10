@@ -16,7 +16,6 @@ func Provider() *schema.Provider {
 			"linuxkit_kernel":   kernelDataSource(),
 			"linuxkit_init":     initDataSource(),
 			"linuxkit_image":    imageDataSource(),
-			"linuxkit_trust":    trustDataSource(),
 			"linuxkit_config":   configDataSource(),
 			"linuxkit_file":     fileDataSource(),
 			"linuxkit_metadata": metadataDataSource(),

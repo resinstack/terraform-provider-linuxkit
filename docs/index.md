@@ -63,10 +63,6 @@ data "linuxkit_image" "sshd" {
   image = "linuxkit/sshd:v0.8"
 }
 
-data "linuxkit_trust" "default" {
-  org = ["linuxkit"]
-}
-
 data "linuxkit_config" "sshd" {
   kernel = data.linuxkit_kernel.kernel.id
   init   = [data.linuxkit_init.init.id]
@@ -82,8 +78,6 @@ data "linuxkit_config" "sshd" {
     data.linuxkit_image.dhcpcd.id,
     data.linuxkit_image.sshd.id,
   ]
-
-  trust = data.linuxkit_trust.default.id
 }
 
 resource "linuxkit_build" "sshd" {

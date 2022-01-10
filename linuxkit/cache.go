@@ -2,6 +2,8 @@ package linuxkit
 
 import (
 	"sync"
+	"os"
+	"path/filepath"
 
 	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
 )
@@ -12,7 +14,6 @@ type cache struct {
 	inits   map[string][]string
 	images  map[string]*moby.Image
 	files   map[string]*moby.File
-	trust   map[string]*moby.TrustConfig
 
 	sync.Mutex
 }
@@ -27,7 +28,6 @@ var globalCache = &cache{
 	inits:   make(map[string][]string),
 	images:  make(map[string]*moby.Image),
 	files:   make(map[string]*moby.File),
-	trust:   make(map[string]*moby.TrustConfig),
 }
 
 func (c *cache) addKernel(k *moby.KernelConfig) string {
@@ -80,12 +80,12 @@ func (c *cache) addConfig(m *moby.Moby) string {
 	return id
 }
 
-func (c *cache) addTrust(t *moby.TrustConfig) string {
-	c.Lock()
-	defer c.Unlock()
+func defaultLinuxkitCache() string {
+	lktDir := ".linuxkit"
 
-	id := id(t)
-	c.trust[id] = t
-
-	return id
+	// Technically this can error if the platform isn't defined,
+	// but you can't run linuxkit on any of those platforms, so
+	// I'm just discarding the error instead.
+	home, _ := os.UserHomeDir()
+	return filepath.Join(home, lktDir, "cache")
 }

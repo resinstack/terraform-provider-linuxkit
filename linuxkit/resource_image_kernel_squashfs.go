@@ -61,7 +61,7 @@ func imageKernelSquashfsCreate(d *schema.ResourceData, meta interface{}) error {
 
 	defer os.RemoveAll(dir)
 
-	err = moby.Formats(filepath.Join(dir, "base"), build, []string{"kernel+squashfs"}, 0, false)
+	err = moby.Formats(filepath.Join(dir, "base"), build, []string{"kernel+squashfs"}, 0, defaultLinuxkitCache())
 	if err != nil {
 		return err
 	}

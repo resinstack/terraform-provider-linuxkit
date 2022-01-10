@@ -70,7 +70,7 @@ func imageAwsCreate(d *schema.ResourceData, meta interface{}) error {
 
 	defer os.RemoveAll(dir)
 
-	err = moby.Formats(filepath.Join(dir, "base"), build, []string{"aws"}, size, false)
+	err = moby.Formats(filepath.Join(dir, "base"), build, []string{"aws"}, size, defaultLinuxkitCache())
 	if err != nil {
 		return err
 	}

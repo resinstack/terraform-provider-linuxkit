@@ -28,7 +28,6 @@ description: |-
 - **onboot** (List of String) The IDs of the onboot containers
 - **onshutdown** (List of String) The IDs of the onshutdown containers
 - **services** (List of String) The IDs of the service containers
-- **trust** (String) The ID of the trust config
 - **type** (String) Type of build, can be tar or docker
 
 
