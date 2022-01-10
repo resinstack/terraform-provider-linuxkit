@@ -16,3 +16,5 @@ require (
 	github.com/zclconf/go-cty v1.4.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0
 )
+
+replace github.com/linuxkit/linuxkit/src/cmd/linuxkit => ../../linuxkit/linuxkit/src/cmd/linuxkit
