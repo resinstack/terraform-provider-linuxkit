@@ -81,6 +81,13 @@ func imageDataSource() *schema.Resource {
 				ForceNew:    true,
 				Elem:        &schema.Schema{Type: schema.TypeString},
 			},
+			"binds_add": &schema.Schema{
+				Type: schema.TypeList,
+				Description: "Equivalent to binds, but appends rather than overwriting defaults",
+				Optional: true,
+				ForceNew: true,
+				Elem: &schema.Schema{Type: schema.TypeString},
+			},
 			"tmpfs": &schema.Schema{
 				Type:        schema.TypeList,
 				Description: "A simpler interface to mount a tmpfs, like --tmpfs in Docker, taking /dest:opt1,opt2",
@@ -834,6 +841,10 @@ func imageRead(d *schema.ResourceData, meta interface{}) error {
 
 	if v, ok := d.GetOk("binds"); ok {
 		image.Binds = interfaceSliceToStringSliceRef(v.([]interface{}))
+	}
+
+	if v, ok := d.GetOk("binds_add"); ok {
+		image.BindsAdd = interfaceSliceToStringSliceRef(v.([]interface{}))
 	}
 
 	if v, ok := d.GetOk("tmpfd"); ok {
