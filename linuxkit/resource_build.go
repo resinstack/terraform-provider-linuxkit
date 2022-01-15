@@ -59,6 +59,12 @@ func buildResource() *schema.Resource {
 				Description: "Architecture to build for, defaults to host",
 				Optional:    true,
 			},
+			"docker_cache_enable": &schema.Schema{
+				Type: schema.TypeBool,
+				Default: false,
+				Description: "Look in the docker cache for images",
+				Optional: true,
+			},
 		},
 	}
 
@@ -106,12 +112,18 @@ func buildCreate(d *schema.ResourceData, meta interface{}) error {
 	if err != nil {
 		return err
 	}
-
 	defer outputFile.Close()
 
-	cacheDir := defaultLinuxkitCache()
+	buildOpts := moby.BuildOpts{
+		Pull: false,
+		BuilderType: typ,
+		DecompressKernel: false,
+		CacheDir: defaultLinuxkitCache(),
+		DockerCache: d.Get("docker_cache_enable").(bool),
+		Arch: d.Get("architecture").(string),
+	}
 
-	err = moby.Build(config, outputFile, false, typ, false, cacheDir, false, d.Get("architecture").(string))
+	err = moby.Build(config, outputFile, buildOpts)
 	if err != nil {
 		return err
 	}
