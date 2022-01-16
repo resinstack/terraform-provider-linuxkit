@@ -1,18 +1,11 @@
 # terraform-provider-linuxkit
 
 This is, as the name suggests, a terraform provider for working with
-LinuxKit.  Right now all it does is provide a data source which
-formats metadata files.
+LinuxKit.  It functions as a complete frontend to the LinuxKit config
+format enabling composable images and easily reused blocks.
 
-To install it you can either compile it locally with `go build` or you
-can obtain a precompiled release.
-
-Once you have obtained a copy, you can install it in
-`~/.terraform.d/plugins/`.
-
-This terraform provider builds
-[LinuxKit](https://github.com/linuxkit/linuxkit) images in all
-supported formats.
+More information can be found [in the Terraform
+registry](https://registry.terraform.io/providers/resinstack/linuxkit).
 
 ## Features
 
