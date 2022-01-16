@@ -1,9 +1,9 @@
 package linuxkit
 
 import (
-	"sync"
 	"os"
 	"path/filepath"
+	"sync"
 
 	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
 )

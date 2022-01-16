@@ -1,22 +1,21 @@
 package linuxkit
 
 import (
-	"os"
-	"io"
 	"crypto/md5"
 	"fmt"
-	"path/filepath"
+	"io"
 	"io/ioutil"
 	"log"
+	"os"
+	"path/filepath"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/linuxkit/linuxkit/src/cmd/linuxkit/moby"
 )
 
-
 type linuxkitImageOutput struct {
 	lkitfmt string
-	size int // Only used for *very* specific output formats
+	size    int // Only used for *very* specific output formats
 }
 
 func newOutput(lkitfmt string) *linuxkitImageOutput {
@@ -128,7 +127,7 @@ func (l *linuxkitImageOutput) id(d *schema.ResourceData) (string, error) {
 // fields in this one that are ordered you must make sure that the
 // transient artifact names are in the same order to ensure that the
 // copy will occur correctly.
-func (l *linuxkitImageOutput) getDestination(d *schema.ResourceData) ([]string) {
+func (l *linuxkitImageOutput) getDestination(d *schema.ResourceData) []string {
 	switch dest := d.Get("destination").(type) {
 	case string:
 		return []string{dest}

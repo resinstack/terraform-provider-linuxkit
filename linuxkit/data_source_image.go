@@ -82,11 +82,11 @@ func imageDataSource() *schema.Resource {
 				Elem:        &schema.Schema{Type: schema.TypeString},
 			},
 			"binds_add": &schema.Schema{
-				Type: schema.TypeList,
+				Type:        schema.TypeList,
 				Description: "Equivalent to binds, but appends rather than overwriting defaults",
-				Optional: true,
-				ForceNew: true,
-				Elem: &schema.Schema{Type: schema.TypeString},
+				Optional:    true,
+				ForceNew:    true,
+				Elem:        &schema.Schema{Type: schema.TypeString},
 			},
 			"tmpfs": &schema.Schema{
 				Type:        schema.TypeList,
