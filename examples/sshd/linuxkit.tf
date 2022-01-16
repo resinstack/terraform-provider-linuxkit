@@ -67,6 +67,21 @@ resource "linuxkit_build" "sshd" {
 }
 
 resource "linuxkit_image_raw_bios" "sshd" {
-  build = linuxkit_build.sshd.destination
+  build       = linuxkit_build.sshd.destination
   destination = "${path.module}/sshd.raw"
+}
+
+resource "linuxkit_image_aws" "sshd" {
+  build = linuxkit_build.sshd.destination
+  destination = "${path.module}/sshd.aws"
+  size = 1000
+}
+
+resource "linuxkit_image_kernel_initrd" "sshd" {
+  build = linuxkit_build.sshd.destination
+  destination = {
+    kernel = "sshd-kernel"
+    initrd = "sshd-initrd"
+    cmdline = "sshd-cmdline"
+  }
 }
