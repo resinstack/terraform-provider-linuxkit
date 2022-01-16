@@ -53,10 +53,6 @@ func (l *linuxkitImageOutput) create(d *schema.ResourceData, meta interface{}) e
 		return err
 	}
 
-	// Need to handle variable numbers of files here mapping from
-	// what linuxkit calls them to what the provider calls them.
-	// This likely involves a fancy type switch to handle whether
-	// destination is a string or a map of string.
 	tnames := l.getTransientArtifactNames(l.lkitfmt)
 	dnames := l.getDestination(d)
 
