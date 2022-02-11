@@ -229,6 +229,46 @@ func imageDataSource() *schema.Resource {
 				Optional:    true,
 				ForceNew:    true,
 			},
+			"devices": &schema.Schema{
+				Type:        schema.TypeSet,
+				Description: "List of devices to enable",
+				Optional:    true,
+				ForceNew:    true,
+				Elem: &schema.Resource{
+					Schema: map[string]*schema.Schema{
+						"path": &schema.Schema{
+							Type:        schema.TypeString,
+							Description: "Path to the device",
+							Required:    true,
+							ForceNew:    true,
+						},
+						"type": &schema.Schema{
+							Type:        schema.TypeString,
+							Description: "The device type, block, char, etc",
+							Optional:    true,
+							ForceNew:    true,
+						},
+						"major": &schema.Schema{
+							Type:        schema.TypeInt,
+							Description: "The device's major number",
+							Optional:    true,
+							ForceNew:    true,
+						},
+						"minor": &schema.Schema{
+							Type:        schema.TypeInt,
+							Description: "The device's minor number",
+							Optional:    true,
+							ForceNew:    true,
+						},
+						"filemode": &schema.Schema{
+							Type:        schema.TypeString,
+							Description: "Filemode of the device",
+							Optional:    true,
+							ForceNew:    true,
+						},
+					},
+				},
+			},
 			"resources": &schema.Schema{
 				Type:        schema.TypeList,
 				Description: "The cgroup resource limits as per the OCI spec",
@@ -936,6 +976,37 @@ func imageRead(d *schema.ResourceData, meta interface{}) error {
 	if v, ok := d.GetOk("cgroups_path"); ok {
 		s := v.(string)
 		image.CgroupsPath = &s
+	}
+
+	if v, ok := d.GetOk("devices"); ok {
+		devices := []moby.Device{}
+		set := v.(*schema.Set)
+		for _, raw := range set.List() {
+			v := raw.(map[string]interface{})
+			device := moby.Device{}
+
+			if v, ok := v["path"]; ok {
+				device.Path = v.(string)
+			}
+
+			if v, ok := v["type"]; ok {
+				device.Type = v.(string)
+			}
+
+			if v, ok := v["major"]; ok {
+				device.Major = int64(v.(int))
+			}
+
+			if v, ok := v["minor"]; ok {
+				device.Minor = int64(v.(int))
+			}
+
+			if v, ok := v["filemode"]; ok {
+				device.Mode = v.(string)
+			}
+			devices = append(devices, device)
+		}
+		image.Devices = &devices
 	}
 
 	if v, ok := d.GetOk("resources"); ok {
