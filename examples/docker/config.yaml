@@ -1,0 +1,100 @@
+kernel:
+  image: linuxkit/kernel:5.10.76
+  cmdline: console=tty0 console=ttyS0 console=ttyAMA0
+init:
+- linuxkit/init:7e3d51e6ab5896ecb36a4829450f7430f2878927
+- linuxkit/runc:9f7aad4eb5e4360cc9ed8778a5c501cce6e21601
+- linuxkit/containerd:2f0907913dd54ab5186006034eb224a0da12443e
+- linuxkit/ca-certificates:c1c73ef590dffb6a0138cf758fe4a4305c9864f4
+- linuxkit/memlogd:fe4a123b619a7dfffc2ba1297dd03b4ac90e3dd7
+onboot:
+- name: sysctl
+  image: linuxkit/sysctl:0dc8f792fc3a58afcebcb0fbe6b48de587265c17
+- name: sysfs
+  image: linuxkit/sysfs:0148c62dbf57948849e8da829d36363b94a76c97
+- name: dhcp_boot
+  image: linuxkit/dhcpcd:52d2c4df0311b182e99241cdc382ff726755c450
+  command:
+  - /sbin/dhcpcd
+  - --nobackground
+  - -d
+  - -f
+  - /dhcpcd.conf
+  - "-1"
+  - "-4"
+onshutdown: []
+services:
+- name: dhcp
+  image: linuxkit/dhcpcd:52d2c4df0311b182e99241cdc382ff726755c450
+- name: logwrite
+  image: linuxkit/logwrite:568325cf294338b37446943c2b86a8cd8dc703db
+- name: getty
+  image: linuxkit/getty:76951a596aa5e0867a38e28f0b94d620e948e3e8
+  env:
+  - INSECURE=true
+- name: ntpd
+  image: linuxkit/openntpd:d6c36ac367ed26a6eeffd8db78334d9f8041b038
+- name: dockerd
+  image: docker:20.10.12-dind
+  capabilities:
+  - all
+  mounts:
+  - destination: ""
+    type: cgroup
+    source: ""
+    options:
+    - rw
+    - nosuid
+    - noexec
+    - nodev
+    - relatime
+  binds:
+  - /dev:/dev
+  - /etc/docker/daemon.json:/etc/docker/daemon.json
+  - /etc/resolv.conf:/etc/resolv.conf
+  - /lib/modules:/lib/modules
+  - /run:/run:rshared
+  - /var/persist:/var/persist:rshared
+  devices:
+  - path: /dev/console
+    type: c
+    major: 5
+    minor: 1
+    mode: "0666"
+  - path: all
+    type: b
+    major: 0
+    minor: 0
+  command:
+  - /usr/local/bin/docker-init
+  - /usr/local/bin/dockerd
+  net: host
+  pid: host
+  rootfsPropagation: shared
+  runtime:
+    cgroups: []
+    mounts: []
+    mkdir:
+    - /var/persist/docker
+    interfaces: []
+    namespace: ""
+files:
+- path: etc/containerd/runtime-config.toml
+  directory: false
+  contents: |
+    cliopts="--log-level INFO"
+    stderr="/var/log/containerd.out.log"
+    stdout="stdout"
+  optional: false
+  mode: "0644"
+- path: etc/docker/daemon.json
+  directory: false
+  contents: '{"bridge":"none","data-root":"/var/persist/docker","iptables":false}'
+  optional: false
+  mode: "0644"
+- path: etc/ntpd.conf
+  directory: false
+  contents: |
+    servers pool.ntp.org
+  optional: false
+  mode: "0644"
