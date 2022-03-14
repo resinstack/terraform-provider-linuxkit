@@ -899,6 +899,10 @@ func imageRead(d *schema.ResourceData, meta interface{}) error {
 		image.Env = interfaceSliceToStringSliceRef(v.([]interface{}))
 	}
 
+	if v, ok := d.GetOk("cwd"); ok {
+		image.Cwd = v.(string)
+	}
+
 	if v, ok := d.GetOk("net"); ok {
 		image.Net = v.(string)
 	}
