@@ -6,6 +6,7 @@ import (
 	"log"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
+	"github.com/sirupsen/logrus"
 
 	"github.com/resinstack/terraform-provider-linuxkit/linuxkit"
 )
@@ -17,6 +18,7 @@ func main() {
 	flag.Parse()
 
 	if debugMode {
+		logrus.SetLevel(logrus.DebugLevel)
 		err := plugin.Debug(context.Background(), "registry.terraform.io/resinstack/linuxkit",
 			&plugin.ServeOpts{ProviderFunc: linuxkit.Provider})
 		if err != nil {
